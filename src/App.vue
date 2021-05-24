@@ -1,7 +1,6 @@
 <template>
   <v-app>
     <Navigation/>
-    <home-page/>
     <v-main>
     </v-main>
   </v-app>
