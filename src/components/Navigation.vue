@@ -1,14 +1,28 @@
 <template>
-  <v-toolbar dark flat>
-    <v-toolbar-title>More To Explore Travel</v-toolbar-title>
-    <v-spacer></v-spacer>
-    <v-toolbar-items v-for="item in nav" :key="item.icon" :title="item.title" >
-      <v-btn>{{ item.text }}</v-btn>
-    </v-toolbar-items>
-  </v-toolbar>
+  <div>
+    <v-toolbar dark flat src="../assets/map-travel.jpg" height="350">
+      <v-toolbar-title color="black">More To Explore Travel</v-toolbar-title>
+      <v-spacer></v-spacer>
+      <v-toolbar-items
+        @click="goToPage(item.url)"
+        v-for="item in nav"
+        :key="item.icon"
+        :title="item.title"
+        height="10"
+      >
+        <v-btn text color="black">{{ item.text }}</v-btn>
+      </v-toolbar-items>
+    </v-toolbar>
+  </div>
 </template>
 
 <script>
+// import HomePage from './components/HomePage';
+// import Services from './components/Services';
+// import AboutMe from '.components/AboutMe';
+// import Blog from './components/Blog';
+//  import Contact from 'components/Contact';
+
 export default {
   name: "Navigation",
   data() {
@@ -17,31 +31,41 @@ export default {
       nav: [
         {
           text: "Home",
-          title: "Back to Home page",
+          title: "--to do--",
           active: true,
+          url: "/",
         },
         {
           text: "Services",
-          title: "About this demo",
+          title: "--to do--",
           active: true,
+          url: "/services",
         },
         {
           text: "About Me",
-          title: "Some stuff that needs doing",
+          title: "--to do--",
           active: true,
+          url: "/aboutme",
         },
         {
           text: "Blog",
-          title: "Our Contact info",
+          title: "--to do--",
           active: false,
+          url: "/blog",
         },
         {
           text: "Contact",
-          title: "Our Contact info",
+          title: "--to do--",
           active: true,
+          url: "/contact",
         },
       ],
     };
+  },
+  methods: {
+    goToPage(page) {
+      this.$router.push(page);
+    },
   },
 };
 </script>
