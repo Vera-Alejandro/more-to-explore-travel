@@ -36,4 +36,9 @@ const router = new VueRouter({
     routes
 })
 
+router.afterEach(to => {
+     localStorage.setItem('LS_ROUTE_PATH', to.fullPath);
+ });
+
+
 export default router
