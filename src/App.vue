@@ -2,6 +2,7 @@
   <v-app>
     <Navigation/>
     <v-main>
+      <router-view :key="$route.fullPath"/>
     </v-main>
   </v-app>
 </template>
@@ -9,17 +10,11 @@
 <script>
 import Navigation from './components/Navigation';
 
-
 export default {
   name: 'App',
 
   components: {
     Navigation,
-    // HomePage,
-    // Services,
-    // AboutMe,
-    // Blog,
-    // Contact
   },
 
   data: () => ({
