@@ -9,14 +9,18 @@
 
 <script>
 import Navigation from './components/Navigation';
-import HomePage from './components/HomePage';
+
 
 export default {
   name: 'App',
 
   components: {
     Navigation,
-    HomePage
+    // HomePage,
+    // Services,
+    // AboutMe,
+    // Blog,
+    // Contact
   },
 
   data: () => ({
