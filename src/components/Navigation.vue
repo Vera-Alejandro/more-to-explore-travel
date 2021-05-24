@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-toolbar dark flat src="../assets/map-travel.jpg" height="350">
+    <v-toolbar dark flat src="../assets/vacation.jpg" height="350">
       <v-toolbar-title color="black">More To Explore Travel</v-toolbar-title>
       <v-spacer></v-spacer>
       <v-toolbar-items

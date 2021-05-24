@@ -11,14 +11,16 @@ export default {
   name: "Home",
   data() {
     return {
-    message: 'no message from server yet',
+    message: '',
     };
   },
   async mounted() {
+    // const text = await ( await fetch( "/api/TravelPageHTTPFunctions?name=Alejandro"));
+    const { text } = await ( await fetch( "/api/TravelPageHTTPFunctions")).json();
     // eslint-disable-next-line no-debugger
     debugger;
-    const { text } = await ( await fetch("/api/TravelPageHTTPFunctions")).json();
-    this.message = text;
+    this.message = 'test';
+    console.log(text);
   },
 };
 </script>
