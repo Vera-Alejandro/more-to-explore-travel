@@ -16,28 +16,29 @@ export default {
       dialog: false,
       nav: [
         {
-          icon: "home",
           text: "Home",
           title: "Back to Home page",
           active: true,
         },
         {
-          icon: "info",
-          text: "About",
+          text: "Services",
           title: "About this demo",
-          active: false,
+          active: true,
         },
         {
-          icon: "assignment_turned_in",
-          text: "Todos",
+          text: "About Me",
           title: "Some stuff that needs doing",
-          active: false,
+          active: true,
         },
         {
-          icon: "email",
-          text: "Contact",
+          text: "Blog",
           title: "Our Contact info",
           active: false,
+        },
+        {
+          text: "Contact",
+          title: "Our Contact info",
+          active: true,
         },
       ],
     };
