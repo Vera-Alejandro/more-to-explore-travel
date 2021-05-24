@@ -17,11 +17,6 @@
 </template>
 
 <script>
-// import HomePage from './components/HomePage';
-// import Services from './components/Services';
-// import AboutMe from '.components/AboutMe';
-// import Blog from './components/Blog';
-//  import Contact from 'components/Contact';
 
 export default {
   name: "Navigation",
@@ -64,7 +59,10 @@ export default {
   },
   methods: {
     goToPage(page) {
-      this.$router.push(page);
+      let from = localStorage.getItem('LS_ROUTE_PATH');
+      if(from != page) {
+        this.$router.push(page);
+      }
     },
   },
 };
