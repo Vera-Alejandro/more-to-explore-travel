@@ -5,8 +5,8 @@
       <v-spacer></v-spacer>
       <v-toolbar-items
         @click="goToPage(item.url)"
-        v-for="item in nav"
-        :key="item.icon"
+        v-for="item in displayNav"
+        :key="item.url"
         :title="item.title"
         height="10"
       >
@@ -28,7 +28,7 @@ export default {
   data() {
     return {
       dialog: false,
-      nav: [
+      fullNav: [
         {
           text: "Home",
           title: "--to do--",
@@ -67,6 +67,11 @@ export default {
       this.$router.push(page);
     },
   },
+  computed: {
+    displayNav() {
+      return this.fullNav.filter(paths => paths.active);
+    }
+  }
 };
 </script>
 
