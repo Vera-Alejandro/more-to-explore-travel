@@ -1,9 +1,9 @@
 <template>
   <div>
-    <v-toolbar dark flat src="../assets/vacation.jpg" height="350">
-      <v-toolbar-title color="black">More To Explore Travel</v-toolbar-title>
-      <v-spacer></v-spacer>
+    <img src="../assets/vacation.jpg" alt="site title page. More To Explore Travel">
+    <v-toolbar class="nav-bar" flat>
       <v-toolbar-items
+        class="nav-btn"
         @click="goToPage(item.url)"
         v-for="item in displayNav"
         :key="item.url"
@@ -74,4 +74,11 @@ export default {
 </script>
 
 <style>
+.nav-bar {
+  padding-left: 10%;
+}
+
+.nav-btn {
+  padding-left: 7%;
+}
 </style>
