@@ -1,6 +1,8 @@
 <template>
   <div>
-    <img src="../assets/vacation.jpg" alt="site title page. More To Explore Travel">
+    <div class="header-container">
+      <img class="header-img" src="../assets/vacation.jpg" alt="site title page. More To Explore Travel">
+    </div>
     <v-toolbar class="nav-bar" flat>
       <v-toolbar-items
         class="nav-btn"
@@ -113,6 +115,15 @@ export default {
 
 .nav-btn li a:hover::before {
 width: 100%;
+}
+
+.header-container {
+  max-width: 1300px;
+}
+
+.header-img {
+  width: 100%;
+  min-width: 500px;
 }
 
 </style>
