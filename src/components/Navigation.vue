@@ -10,7 +10,8 @@
         :title="item.title"
         height="10"
       >
-        <v-btn text color="black">{{ item.text }}</v-btn>
+      <li><a>{{ item.text }}</a></li>
+        <!-- <v-btn text color="black">{{ item.text }}</v-btn> -->
       </v-toolbar-items>
     </v-toolbar>
   </div>
@@ -79,6 +80,39 @@ export default {
 }
 
 .nav-btn {
-  padding-left: 7%;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: inline-block;
+  margin-left: 6rem;
+  padding-top: .5rem;
 }
+
+.nav-btn li a {
+  color: blue;
+  text-decoration: none;
+  text-transform: uppercase;
+  position: relative;
+}
+
+.nav-btn li a:hover {
+  color: black;  
+}
+
+.nav-btn li a:before {
+  content: '';
+  display: block;
+  height: 5px;
+  background: #444;  
+
+  top: 0;
+  width: 0%;
+
+  transition: all ease-in-out 250ms;
+}
+
+.nav-btn li a:hover::before {
+width: 100%;
+}
+
 </style>
