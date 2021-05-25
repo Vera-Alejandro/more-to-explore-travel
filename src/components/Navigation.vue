@@ -1,16 +1,19 @@
 <template>
   <div>
-    <v-toolbar dark flat src="../assets/vacation.jpg" height="350">
-      <v-toolbar-title color="black">More To Explore Travel</v-toolbar-title>
-      <v-spacer></v-spacer>
+    <div class="header-container">
+      <img class="header-img" src="../assets/vacation.jpg" alt="site title page. More To Explore Travel">
+    </div>
+    <v-toolbar class="nav-bar" flat>
       <v-toolbar-items
+        class="nav-btn"
         @click="goToPage(item.url)"
         v-for="item in displayNav"
         :key="item.url"
         :title="item.title"
         height="10"
       >
-        <v-btn text color="black">{{ item.text }}</v-btn>
+      <li><a>{{ item.text }}</a></li>
+        <!-- <v-btn text color="black">{{ item.text }}</v-btn> -->
       </v-toolbar-items>
     </v-toolbar>
   </div>
@@ -74,4 +77,53 @@ export default {
 </script>
 
 <style>
+.nav-bar {
+  padding-left: 10%;
+}
+
+.nav-btn {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: inline-block;
+  margin-left: 6rem;
+  padding-top: .5rem;
+}
+
+.nav-btn li a {
+  color: blue;
+  text-decoration: none;
+  text-transform: uppercase;
+  position: relative;
+}
+
+.nav-btn li a:hover {
+  color: black;  
+}
+
+.nav-btn li a:before {
+  content: '';
+  display: block;
+  height: 5px;
+  background: #444;  
+
+  top: 0;
+  width: 0%;
+
+  transition: all ease-in-out 250ms;
+}
+
+.nav-btn li a:hover::before {
+width: 100%;
+}
+
+.header-container {
+  max-width: 1300px;
+}
+
+.header-img {
+  width: 100%;
+  min-width: 500px;
+}
+
 </style>

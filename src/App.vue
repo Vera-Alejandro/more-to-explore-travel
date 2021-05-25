@@ -1,17 +1,22 @@
 <template>
   <v-app>
-    <Navigation/>
+    <Navigation />
     <v-main>
-      <router-view :key="$route.fullPath"/>
+      <router-view :key="$route.fullPath" />
     </v-main>
+    <v-footer>
+      <v-col class="text-center">
+        {{ new Date().getFullYear() }} - <strong>Alejandro</strong>
+      </v-col>
+    </v-footer>
   </v-app>
 </template>
 
 <script>
-import Navigation from './components/Navigation';
+import Navigation from "./components/Navigation";
 
 export default {
-  name: 'App',
+  name: "App",
 
   components: {
     Navigation,

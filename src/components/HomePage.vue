@@ -1,29 +1,46 @@
 <template>
   <div>
+    <header>
       <h1>More To Explore Travel</h1>
-      <div><p>Travel More With Ellie B</p></div>
-      <div><p>{{ message }}</p></div>
+    </header>
+    <main>
+      <VacationDestinations/>
+      <v-divider></v-divider>
+
+      <Welcome/>
+      <v-divider></v-divider>
+
+      <LetsGetInTouch/>
+      <v-divider></v-divider>
+
+      <div class="container"></div>
+    </main>
   </div>
 </template>
 
 <script>
+import Welcome from './Home/Welcome';
+import LetsGetInTouch from './Home/LetsGetInTouch';
+import VacationDestinations from './Home/VacationDestinations';
+
+
 export default {
   name: "Home",
-  data() {
-    return {
-    message: '',
-    };
+  components: {
+    VacationDestinations,
+    Welcome,
+    LetsGetInTouch
   },
-  async mounted() {
-    // const text = await ( await fetch( "/api/TravelPageHTTPFunctions?name=Alejandro"));
-    const { text } = await ( await fetch( "/api/TravelPageHTTPFunctions")).json();
-    // eslint-disable-next-line no-debugger
-    debugger;
-    this.message = 'test';
-    console.log(text);
+  data() {
+    return {};
   },
 };
 </script>
 
 <style>
+
+img {
+  max-height: 400px;
+}
+
 </style>
