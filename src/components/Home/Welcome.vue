@@ -10,29 +10,37 @@
           lacus, nec fermentum augue auctor et.
         </p>
       </article>
-      <v-btn>Get To Know Me!</v-btn>
+      <v-btn @click="inDevAlert = true">Get To Know Me!</v-btn>
     </div>
     <div class="img-cont">
       <aside class="welcome-img">
         <img src="../../assets/map-travel.jpg" alt="" />
       </aside>
     </div>
+
+    <v-snackbar v-model="inDevAlert">
+      'Getting To Know Me' feature is still in development.
+      <template v-slot:action="{ attrs }">
+        <v-btn color="green" text v-bind="attrs" @click="inDevAlert = false">
+          Close
+        </v-btn>
+      </template>
+    </v-snackbar>
   </div>
 </template>
 
 <script>
 export default {
-    name:"Welcome",
-    data() {
-        return {
-
-        };
-    }
+  name: "Welcome",
+  data() {
+    return {
+      inDevAlert: false,
+    };
+  },
 };
 </script>
 
 <style>
-
 .welcome-container {
   height: 15rem;
   margin: 2rem;
@@ -69,5 +77,4 @@ export default {
 aside {
   max-height: 100%;
 }
-
 </style>
