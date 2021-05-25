@@ -9,6 +9,7 @@
         <img class="vacation-type-img" src="../assets/map-travel.jpg" alt="" />
         <img class="vacation-type-img" src="../assets/map-travel.jpg" alt="" />
       </div>
+      <v-divider></v-divider>
 
       <div class="container welcome-container">
         <div class="text-cont">
@@ -29,7 +30,15 @@
           </aside>
         </div>
       </div>
-      <div class="container"></div>
+      <v-divider></v-divider>
+
+      <div class="container contact">
+        <div>
+          <h2>Let's Get in Touch!</h2>
+        </div>
+      </div>
+      <v-divider></v-divider>
+
       <div class="container"></div>
     </main>
   </div>
@@ -61,7 +70,7 @@ export default {
 
 .welcome-container {
   height: 15rem;
-  margin: 1rem;
+  margin: 2rem;
   clear: both;
 }
 
@@ -84,6 +93,7 @@ export default {
 
 .welcome-img {
   height: 25rem;
+  max-width: 100%;
 }
 
 .welcome-img img {
@@ -96,5 +106,8 @@ aside {
 
 img {
   max-height: 400px;
+}
+main {
+  max-width: 1300px;
 }
 </style>
