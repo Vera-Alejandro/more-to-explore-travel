@@ -13,6 +13,8 @@
       <LetsGetInTouch/>
       <v-divider></v-divider>
 
+      <InstagramFeed/>
+
       <div class="container"></div>
     </main>
   </div>
@@ -22,14 +24,15 @@
 import Welcome from './Home/Welcome';
 import LetsGetInTouch from './Home/LetsGetInTouch';
 import VacationDestinations from './Home/VacationDestinations';
-
+import InstagramFeed from './Home/InstagramFeed';
 
 export default {
   name: "Home",
   components: {
     VacationDestinations,
     Welcome,
-    LetsGetInTouch
+    LetsGetInTouch,
+    InstagramFeed
   },
   data() {
     return {};
