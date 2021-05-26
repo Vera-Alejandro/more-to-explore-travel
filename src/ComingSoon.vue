@@ -1,7 +1,7 @@
 <template>
   <div class="centered coming-soon-container">
     <v-img class='business-logo' src="./assets/logo.png" :aspect-ratio="16 / 9" :width="300" />
-    <h1>SIte Coming Soon...</h1>
+    <h1>Site Coming Soon...</h1>
     <div class="notify-me sketchy">
       <form action="submit">
         <v-card-title class="form-title">Sign Up To Get Notified </v-card-title>
