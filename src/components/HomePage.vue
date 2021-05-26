@@ -5,17 +5,17 @@
     </header>
     <main>
       <VacationDestinations/>
+      
       <v-divider></v-divider>
-
       <Welcome/>
-      <v-divider></v-divider>
 
+
+      <v-divider></v-divider>
       <LetsGetInTouch/>
-      <v-divider></v-divider>
 
+      <v-divider></v-divider>
       <InstagramFeed/>
 
-      <div class="container"></div>
     </main>
   </div>
 </template>
