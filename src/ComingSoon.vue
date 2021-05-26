@@ -1,7 +1,8 @@
 <template>
   <div class="centered coming-soon-container">
-    <v-img class='business-logo' src="./assets/logo.png" :aspect-ratio="16 / 9" :width="300" />
-    <h1>Site Coming Soon...</h1>
+    <v-img class="business-logo" src="./assets/logo.png" :aspect-ratio="16 / 9" :width="300" />
+    <h1>Site Coming Soon ...</h1>
+
     <div class="notify-me sketchy">
       <form action="submit">
         <v-card-title class="form-title">Sign Up To Get Notified </v-card-title>
@@ -30,7 +31,7 @@
           >
         </v-row>
       </form>
-    </div>
+    </div> 
 
     <v-snackbar v-model="inDevAlert">
       'Notify Me!' is still in development.
@@ -95,17 +96,19 @@ export default {
 
 <style>
 .centered {
-  position: fixed;
   top: 20%;
   left: 30%;
 }
 
 .coming-soon-container {
-    width: 50%;
+  width: 50%;
+  position: relative;
+  text-align: center;
 }
 
 .notify-me {
-  font-family: 'Libre Baskerville', serif;
+  font-family: "Libre Baskerville", serif;
+  display: inline-block;
 }
 
 .form-inputs {
@@ -117,8 +120,8 @@ export default {
 }
 
 .business-logo {
-    display: block;
-    margin: auto;
+  display: block;
+  margin: auto;
 }
 
 .form-title {
@@ -126,15 +129,15 @@ export default {
 }
 
 .sketchy {
-    padding: 2rem 4rem;
-    display: inline-block;
-    border: 3px solid #333333;
-    font-size: 2.5rem;
-    border-radius: 2% 6% 5% 4% / 1% 1% 2% 4%;
-    text-transform: uppercase;
-    letter-spacing: 0.3ch;
-    background: #ffffff;
-    position: relative;
+  padding: 2rem 4rem;
+  display: inline-block;
+  border: 3px solid #333333;
+  font-size: 2.5rem;
+  border-radius: 2% 6% 5% 4% / 1% 1% 2% 4%;
+  text-transform: uppercase;
+  letter-spacing: 0.3ch;
+  background: #ffffff;
+  position: relative;
 }
 
 h1 {
