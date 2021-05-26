@@ -1,5 +1,6 @@
 <template>
   <v-app>
+    <div  v-if="readyForRelease">
     <Navigation />
     <v-main>
       <router-view :key="$route.fullPath" />
@@ -19,21 +20,27 @@
         </div>
       </v-col>
     </v-footer>
+    </div>
+    <div v-if="!readyForRelease">
+      <CommingSoon/>
+    </div>
   </v-app>
 </template>
 
 <script>
 import Navigation from "./components/Navigation";
+import CommingSoon from "./ComingSoon";
 
 export default {
   name: "App",
 
   components: {
     Navigation,
+    CommingSoon,
   },
 
   data: () => ({
-    //
+      readyForRelease: false,
   }),
 };
 </script>
