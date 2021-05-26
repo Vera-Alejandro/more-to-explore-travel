@@ -97,7 +97,7 @@ export default {
 <style>
 .centered {
   top: 20%;
-  left: 30%;
+  left: 25%;
 }
 
 .coming-soon-container {
