@@ -61,6 +61,7 @@ export default {
   text-align: center;
 }
 
+
 .welcome-msg {
   float: left;
 }
