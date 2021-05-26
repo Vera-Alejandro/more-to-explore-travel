@@ -1,28 +1,30 @@
 <template>
   <v-app>
-    <div  v-if="readyForRelease">
-    <Navigation />
-    <v-main>
-      <router-view :key="$route.fullPath" />
-    </v-main>
-    <v-footer>
-      <v-col class="text-center">
-        {{ new Date().getFullYear() }} - <strong>Alejandro</strong>
-        <div class="icon-shoutout">
-          Icons made by
-          <a href="https://www.flaticon.com/authors/good-ware" title="Good Ware"
-            >Good Ware</a
-          >
-          from
-          <a href="https://www.flaticon.com/" title="Flaticon"
-            >www.flaticon.com</a
-          >
-        </div>
-      </v-col>
-    </v-footer>
+    <div v-if="releaseStatus">
+      <Navigation />
+      <v-main>
+        <router-view :key="$route.fullPath" />
+      </v-main>
+      <v-footer>
+        <v-col class="text-center">
+          {{ new Date().getFullYear() }} - <strong>Alejandro</strong>
+          <div class="icon-shoutout">
+            Icons made by
+            <a
+              href="https://www.flaticon.com/authors/good-ware"
+              title="Good Ware"
+              >Good Ware</a
+            >
+            from
+            <a href="https://www.flaticon.com/" title="Flaticon"
+              >www.flaticon.com</a
+            >
+          </div>
+        </v-col>
+      </v-footer>
     </div>
-    <div v-if="!readyForRelease">
-      <CommingSoon/>
+    <div v-if="!releaseStatus">
+      <CommingSoon />
     </div>
   </v-app>
 </template>
@@ -40,7 +42,7 @@ export default {
   },
 
   data: () => ({
-      readyForRelease: false,
+    releaseStatus: process.env.VUE_APP_RELEASE_READY,
   }),
 };
 </script>
