@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <div v-if="releaseStatus">
+    <div v-if="releaseStatus === 'siteReady'">
       <Navigation />
       <v-main>
         <router-view :key="$route.fullPath" />
@@ -23,7 +23,7 @@
         </v-col>
       </v-footer>
     </div>
-    <div v-if="!releaseStatus">
+    <div v-if="releaseStatus === 'ComingSoon'">
       <CommingSoon />
     </div>
   </v-app>
