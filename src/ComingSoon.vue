@@ -86,16 +86,16 @@ export default {
   },
   methods: {
     addToNotificationList() {
-      const user = {
-        fullName: this.name,
-        emailAddress: this.email
-      };
+      // const user = {
+      //   fullName: this.name,
+      //   emailAddress: this.email
+      // };
 
-      this.$.ajax({
-        type: "POST",
-        url: "http://localhost:7071/api/StoreUserNotification",
-        data: user,
-      })
+      // this.$.ajax({
+      //   type: "POST",
+      //   url: "http://localhost:7071/api/StoreUserNotification",
+      //   data: user,
+      // })
 
       console.log("add them");
       this.inDevAlert = true;
