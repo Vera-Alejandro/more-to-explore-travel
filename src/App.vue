@@ -1,7 +1,7 @@
 <template>
   <v-app>
-    <div v-if="releaseStatus === 'SiteReady'">
-      <Navigation />
+    <div v-if="releaseStatus">
+      <Navigation/>
       <v-main>
         <router-view :key="$route.fullPath" />
       </v-main>
@@ -23,7 +23,7 @@
         </v-col>
       </v-footer>
     </div>
-    <div v-if="releaseStatus === 'ComingSoon'">
+    <div v-if="!releaseStatus">
       <CommingSoon />
     </div>
   </v-app>
@@ -51,4 +51,5 @@ export default {
 .icon-shoutout {
   font-size: 10px;
 }
+
 </style>
