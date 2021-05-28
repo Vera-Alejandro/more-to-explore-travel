@@ -1,12 +1,17 @@
 using System;
 using System.Data.SqlClient;
+using System.IO;
+using System.Security.Cryptography.X509Certificates;
 using System.Threading.Tasks;
+using System.Web.Http;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Extensions.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
+using Newtonsoft.Json;
+using BindPropertiesAttribute = Microsoft.AspNetCore.Mvc.BindPropertiesAttribute;
 
 
 namespace api
@@ -15,37 +20,54 @@ namespace api
     {
         [FunctionName("AddToNotificationList")]
         public static async Task<IActionResult> Run(
-            [HttpTrigger(AuthorizationLevel.Function, "get", "post", Route = null)]
+            [HttpTrigger(AuthorizationLevel.Anonymous, "GET", "POST", Route = null)]
             HttpRequest req, ILogger log, ExecutionContext context)
         {
-            var config = new ConfigurationBuilder()
-                .SetBasePath(context.FunctionAppDirectory)
-                .AddJsonFile("local.settings.json", optional: true, reloadOnChange: true)
-                .AddEnvironmentVariables()
-                .Build();
 
-            string conn_str = config["SQLConnectionString"];
+            string conn_str = "Server=tcp:skynet-wopr.database.windows.net,1433;Initial Catalog=santa;Persist Security Info=False;User ID=heheman;Password=kE19w&nK7i4p0OP7ERtA;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
 
             if (string.IsNullOrEmpty(conn_str))
             {
                 log.LogError("-!!!!-----There was an issue with getting the connection string.");
+                return new BadRequestErrorMessageResult("Connection String Error");
             }
 
-            using (SqlConnection conn = new SqlConnection(conn_str))
+            string requestBody = await new StreamReader(req.Body).ReadToEndAsync();
+            UserToNotify user = JsonConvert.DeserializeObject<UserToNotify>(requestBody);
+
+
+            try
             {
-                conn.Open();
-
-                var text_cmd = $"INSERT INTO EmailList VALUES ('Ale at {DateTime.Now}', 'alejandro@google.com');";
-
-                using (SqlCommand cmd = new SqlCommand(text_cmd, conn))
+                using (SqlConnection conn = new SqlConnection(conn_str))
                 {
-                    var rows = await cmd.ExecuteNonQueryAsync();
+                    conn.Open();
 
-                    log.LogInformation($"{rows} rows were inserted!");
+                    var query = "INSERT INTO EmailList VALUES (@fullName, @emailAddress);";
 
-                    return new OkObjectResult($"Hello, Alejandro, \ndata has been inserted.");
+                    using (SqlCommand cmd = new SqlCommand(query, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@fullName", user.FullName);
+                        cmd.Parameters.AddWithValue("@emailAddress", user.EmailAddress);
+
+                        var rows = await cmd.ExecuteNonQueryAsync();
+                        
+                        log.LogInformation($"{rows} rows were inserted!");
+
+                        return new OkObjectResult($"Hello, Alejandro, \ndata has been inserted.");
+                    }
                 }
             }
+            catch (Exception e)
+            {
+                log.LogError("There was an error when writing to the db: ", e);
+                return new InternalServerErrorResult();
+            }
         }
+    }
+
+    public class UserToNotify
+    {
+        public string FullName { get; set; }
+        public string EmailAddress { get; set; }
     }
 }

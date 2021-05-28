@@ -1,6 +1,11 @@
 <template>
   <div class="centered coming-soon-container">
-    <v-img class="business-logo" src="./assets/logo.png" :aspect-ratio="16 / 9" :width="300" />
+    <v-img
+      class="business-logo"
+      src="./assets/logo.png"
+      :aspect-ratio="16 / 9"
+      :width="300"
+    />
     <h1>Site Coming Soon ...</h1>
 
     <div class="notify-me sketchy">
@@ -31,7 +36,7 @@
           >
         </v-row>
       </form>
-    </div> 
+    </div>
 
     <v-snackbar v-model="inDevAlert">
       'Notify Me!' is still in development.
@@ -85,19 +90,29 @@ export default {
     },
   },
   methods: {
-    addToNotificationList() {
-      // const user = {
-      //   fullName: this.name,
-      //   emailAddress: this.email
-      // };
+    async addToNotificationList() {
+      const user = {
+        fullName: this.name,
+        emailAddress: this.email,
+      };
 
-      // this.$.ajax({
-      //   type: "POST",
-      //   url: "http://localhost:7071/api/StoreUserNotification",
-      //   data: user,
-      // })
+      const requestOptions = {
+        method: "POST",
+        headers: { 
+          "Content-Type": "application/json" ,
+          "mode": "cors"
+          },
+        body: JSON.stringify(user),
+      };
 
-      console.log("add them");
+      const response = await fetch(
+        "http://localhost:7071/api/AddToNotificationList",
+        requestOptions
+      );
+      
+      const data = await response.json();
+      console.log(data);
+      
       this.inDevAlert = true;
       return;
     },
