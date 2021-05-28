@@ -1,11 +1,7 @@
 <template>
   <div class="centered coming-soon-container">
-    <v-img
-      class="business-logo"
-      src="./assets/logo.png"
-      :aspect-ratio="16 / 9"
-      :width="300"
-    />
+
+    <img class="business-logo" src="./assets/logo.png" alt="More To Explore Site Logo">
     <h1>Site Coming Soon ...</h1>
 
     <div class="notify-me sketchy">
@@ -145,21 +141,21 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .centered {
   top: 5%;
   left: 25%;
 }
 
 .coming-soon-container {
-  width: 50%;
-  position: relative;
   text-align: center;
+  padding: 0 2rem;
 }
 
 .notify-me {
   font-family: "Libre Baskerville", serif;
   display: inline-block;
+  width: 95%;
 }
 
 .form-inputs {
@@ -173,14 +169,19 @@ export default {
 .business-logo {
   display: block;
   margin: auto;
+  max-width: 100%
 }
 
 .form-title {
   justify-content: center;
+  font-size: 33%;
+  font-weight: bold;
+  text-decoration: underline;
+  padding-bottom: .5rem;
 }
 
 .sketchy {
-  padding: 2rem 4rem;
+  padding: 1rem 1.5rem 2rem 1rem;
   display: inline-block;
   border: 3px solid #333333;
   font-size: 2.5rem;
@@ -203,6 +204,6 @@ h1 {
   font-family: "Satisfy", cursive;
   text-align: center;
   margin-bottom: 2rem;
-  font-size: 3rem;
+  font-size: 2rem;
 }
 </style>
