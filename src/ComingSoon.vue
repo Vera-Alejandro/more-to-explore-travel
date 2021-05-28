@@ -107,6 +107,7 @@ export default {
         return;
       }
       this.alert_formincomplete = false;
+      this.uploadingData = true;
 
       const user = {
         fullName: this.name,
@@ -131,6 +132,7 @@ export default {
 
         if (response.status === 200) {
           this.userSignedUp = true;
+          this.uploadingData = null;
           }
           else if (response.status === 500 || response.status === 404) {
             throw new Error;
@@ -140,16 +142,6 @@ export default {
       }
     },
   },
-  watch: {
-    loader() {
-      const l = this.uploadingData;
-      this[l] = !this[l];
-
-      setTimeout(() => (this[l] = false), 3000);
-
-      this.uploadingData = null;
-    }
-  }
 };
 </script>
 
