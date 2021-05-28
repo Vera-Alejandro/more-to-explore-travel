@@ -31,7 +31,7 @@
           ></v-text-field>
         </div>
         <v-row justify="center">
-          <v-btn class="btn-notify" @click="addToNotificationList"
+          <v-btn class="btn-notify" @click="addToNotificationList" :loading="uploadingData"
             >Notify Me!</v-btn
           >
         </v-row>
@@ -42,8 +42,18 @@
       </div>
     </div>
 
-    <v-alert v-model="alert_formincomplete" dismissible outlined text type="warning">Form Incomplete: Please fill out form</v-alert>
-
+    <v-alert
+      class="notifyUser"
+      v-model="alert_formincomplete"
+      dismissible
+      outlined
+      text
+      type="warning"
+      >Form Incomplete: Please fill out form</v-alert
+    >
+    <v-alert class="notifyUser" v-model="alert_fetcherror" dismissible outlined text type="error"
+      >Error Occurred: Please try again later</v-alert
+    >
   </div>
 </template>
 
@@ -65,6 +75,8 @@ export default {
       email: "",
       userSignedUp: false,
       alert_formincomplete: false,
+      alert_fetcherror: false,
+      uploadingData: null,
     };
   },
   computed: {
@@ -90,7 +102,7 @@ export default {
   },
   methods: {
     async addToNotificationList() {
-      if(this.name === "" || this.email === "") {
+      if (this.name === "" || this.email === "") {
         this.alert_formincomplete = true;
         return;
       }
@@ -110,16 +122,34 @@ export default {
         body: JSON.stringify(user),
       };
 
-      const response = await fetch(
-        "https://more-to-explore-api.azurewebsites.net/api/AddToNotificationList?",
-        requestOptions
-      );
+      try {
+        const response = await fetch(
+          "https://more-to-explore-api.azurewebsites.net/api/AddToNotificationList?",
+          // "http://localhost:7071/api/AddToNotificationList",
+          requestOptions
+        );
 
-      if (response.status === 200) {
-        this.userSignedUp = true;
+        if (response.status === 200) {
+          this.userSignedUp = true;
+          }
+          else if (response.status === 500 || response.status === 404) {
+            throw new Error;
+          }
+      } catch (error) {
+        this.alert_fetcherror = true;
       }
     },
   },
+  watch: {
+    loader() {
+      const l = this.uploadingData;
+      this[l] = !this[l];
+
+      setTimeout(() => (this[l] = false), 3000);
+
+      this.uploadingData = null;
+    }
+  }
 };
 </script>
 
@@ -173,7 +203,7 @@ export default {
   font-size: 1.5rem;
 }
 
-.form-warning {
+.notifyUser {
   margin: 2rem;
 }
 

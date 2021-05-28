@@ -1,17 +1,14 @@
 using System;
 using System.Data.SqlClient;
 using System.IO;
-using System.Security.Cryptography.X509Certificates;
 using System.Threading.Tasks;
 using System.Web.Http;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Extensions.Http;
-using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
-using BindPropertiesAttribute = Microsoft.AspNetCore.Mvc.BindPropertiesAttribute;
 
 
 namespace api
@@ -59,7 +56,7 @@ namespace api
             }
             catch (Exception e)
             {
-                log.LogError("There was an error when writing to the db: ", e);
+                log.LogError($"There was an error when writing to the db: {e}-");
                 return new InternalServerErrorResult();
             }
         }
