@@ -174,7 +174,7 @@ export default {
 
 .form-title {
   justify-content: center;
-  font-size: 33%;
+  font-size: .85rem;
   font-weight: bold;
   text-decoration: underline;
   padding-bottom: .5rem;
