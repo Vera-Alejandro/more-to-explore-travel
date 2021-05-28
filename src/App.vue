@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <div v-if="releaseStatus === 'siteReady'">
+    <div v-if="releaseStatus === 'SiteReady'">
       <Navigation />
       <v-main>
         <router-view :key="$route.fullPath" />

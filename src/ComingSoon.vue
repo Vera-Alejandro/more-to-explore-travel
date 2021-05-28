@@ -1,10 +1,15 @@
 <template>
   <div class="centered coming-soon-container">
-    <v-img class="business-logo" src="./assets/logo.png" :aspect-ratio="16 / 9" :width="300" />
+    <v-img
+      class="business-logo"
+      src="./assets/logo.png"
+      :aspect-ratio="16 / 9"
+      :width="300"
+    />
     <h1>Site Coming Soon ...</h1>
 
     <div class="notify-me sketchy">
-      <form action="submit">
+      <form action="submit" v-if="!userSignedUp">
         <v-card-title class="form-title">Sign Up To Get Notified </v-card-title>
         <div class="form-inputs">
           <v-text-field
@@ -26,21 +31,29 @@
           ></v-text-field>
         </div>
         <v-row justify="center">
-          <v-btn class="btn-notify" @click="addToNotificationList"
+          <v-btn class="btn-notify" @click="addToNotificationList" :loading="uploadingData"
             >Notify Me!</v-btn
           >
         </v-row>
       </form>
-    </div> 
 
-    <v-snackbar v-model="inDevAlert">
-      'Notify Me!' is still in development.
-      <template v-slot:action="{ attrs }">
-        <v-btn color="green" text v-bind="attrs" @click="inDevAlert = false">
-          Close
-        </v-btn>
-      </template>
-    </v-snackbar>
+      <div v-if="userSignedUp">
+        <h4 class="thank-you">Thank You For Signing Up</h4>
+      </div>
+    </div>
+
+    <v-alert
+      class="notifyUser"
+      v-model="alert_formincomplete"
+      dismissible
+      outlined
+      text
+      type="warning"
+      >Form Incomplete: Please fill out form</v-alert
+    >
+    <v-alert class="notifyUser" v-model="alert_fetcherror" dismissible outlined text type="error"
+      >Error Occurred: Please try again later</v-alert
+    >
   </div>
 </template>
 
@@ -60,7 +73,10 @@ export default {
     return {
       name: "",
       email: "",
-      inDevAlert: false,
+      userSignedUp: false,
+      alert_formincomplete: false,
+      alert_fetcherror: false,
+      uploadingData: null,
     };
   },
   computed: {
@@ -85,10 +101,45 @@ export default {
     },
   },
   methods: {
-    addToNotificationList() {
-      console.log("add them");
-      this.inDevAlert = true;
-      return;
+    async addToNotificationList() {
+      if (this.name === "" || this.email === "") {
+        this.alert_formincomplete = true;
+        return;
+      }
+      this.alert_formincomplete = false;
+      this.uploadingData = true;
+
+      const user = {
+        fullName: this.name,
+        emailAddress: this.email,
+      };
+
+      const requestOptions = {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          mode: "cors",
+        },
+        body: JSON.stringify(user),
+      };
+
+      try {
+        const response = await fetch(
+          "https://more-to-explore-api.azurewebsites.net/api/AddToNotificationList?",
+          // "http://localhost:7071/api/AddToNotificationList",
+          requestOptions
+        );
+
+        if (response.status === 200) {
+          this.userSignedUp = true;
+          this.uploadingData = null;
+          }
+          else if (response.status === 500 || response.status === 404) {
+            throw new Error;
+          }
+      } catch (error) {
+        this.alert_fetcherror = true;
+      }
     },
   },
 };
@@ -96,7 +147,7 @@ export default {
 
 <style>
 .centered {
-  top: 20%;
+  top: 5%;
   left: 25%;
 }
 
@@ -138,6 +189,14 @@ export default {
   letter-spacing: 0.3ch;
   background: #ffffff;
   position: relative;
+}
+
+.thank-you {
+  font-size: 1.5rem;
+}
+
+.notifyUser {
+  margin: 2rem;
 }
 
 h1 {
