@@ -42,6 +42,7 @@
       </div>
     </div>
 
+    <v-alert v-model="alert_formincomplete" dismissible outlined text type="warning">Form Incomplete: Please fill out form</v-alert>
 
   </div>
 </template>
@@ -63,6 +64,7 @@ export default {
       name: "",
       email: "",
       userSignedUp: false,
+      alert_formincomplete: false,
     };
   },
   computed: {
@@ -88,6 +90,11 @@ export default {
   },
   methods: {
     async addToNotificationList() {
+      if(this.name === "" || this.email === "") {
+        this.alert_formincomplete = true;
+        return;
+      }
+
       const user = {
         fullName: this.name,
         emailAddress: this.email,
@@ -95,10 +102,10 @@ export default {
 
       const requestOptions = {
         method: "POST",
-        headers: { 
-          "Content-Type": "application/json" ,
-          "mode": "cors"
-          },
+        headers: {
+          "Content-Type": "application/json",
+          mode: "cors",
+        },
         body: JSON.stringify(user),
       };
 
@@ -106,7 +113,7 @@ export default {
         "http://localhost:7071/api/AddToNotificationList",
         requestOptions
       );
-      
+
       if (response.status === 200) {
         this.userSignedUp = true;
       }
@@ -117,7 +124,7 @@ export default {
 
 <style>
 .centered {
-  top: 20%;
+  top: 5%;
   left: 25%;
 }
 
@@ -161,8 +168,12 @@ export default {
   position: relative;
 }
 
-.thank-you{
+.thank-you {
   font-size: 1.5rem;
+}
+
+.form-warning {
+  margin: 2rem;
 }
 
 h1 {
