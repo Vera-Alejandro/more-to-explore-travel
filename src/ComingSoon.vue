@@ -94,6 +94,7 @@ export default {
         this.alert_formincomplete = true;
         return;
       }
+      this.alert_formincomplete = false;
 
       const user = {
         fullName: this.name,
