@@ -111,7 +111,7 @@ export default {
       };
 
       const response = await fetch(
-        "http://localhost:7071/api/AddToNotificationList",
+        "https://more-to-explore-api.azurewebsites.net/api/AddToNotificationList?",
         requestOptions
       );
 
