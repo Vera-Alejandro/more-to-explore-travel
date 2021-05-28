@@ -9,7 +9,7 @@
     <h1>Site Coming Soon ...</h1>
 
     <div class="notify-me sketchy">
-      <form action="submit">
+      <form action="submit" v-if="!userSignedUp">
         <v-card-title class="form-title">Sign Up To Get Notified </v-card-title>
         <div class="form-inputs">
           <v-text-field
@@ -36,16 +36,13 @@
           >
         </v-row>
       </form>
+
+      <div v-if="userSignedUp">
+        <h4 class="thank-you">Thank You For Signing Up</h4>
+      </div>
     </div>
 
-    <v-snackbar v-model="inDevAlert">
-      'Notify Me!' is still in development.
-      <template v-slot:action="{ attrs }">
-        <v-btn color="green" text v-bind="attrs" @click="inDevAlert = false">
-          Close
-        </v-btn>
-      </template>
-    </v-snackbar>
+
   </div>
 </template>
 
@@ -65,7 +62,7 @@ export default {
     return {
       name: "",
       email: "",
-      inDevAlert: false,
+      userSignedUp: false,
     };
   },
   computed: {
@@ -110,11 +107,9 @@ export default {
         requestOptions
       );
       
-      const data = await response.json();
-      console.log(data);
-      
-      this.inDevAlert = true;
-      return;
+      if (response.status === 200) {
+        this.userSignedUp = true;
+      }
     },
   },
 };
@@ -164,6 +159,10 @@ export default {
   letter-spacing: 0.3ch;
   background: #ffffff;
   position: relative;
+}
+
+.thank-you{
+  font-size: 1.5rem;
 }
 
 h1 {
