@@ -98,7 +98,7 @@ export default {
 /* nav menue styling */
 .overlay {
   height: 100%;
-  width: 100%;
+  width: 0;
   position: fixed;
   z-index: 1;
   left: 0;
@@ -139,8 +139,8 @@ export default {
 
 .menu-btn {
   position: absolute;
-  top: 20px;
-  right: 25px;
+  top: 1%;
+  right: 5%;
   font-size: 45px;
   color: white;
 }
