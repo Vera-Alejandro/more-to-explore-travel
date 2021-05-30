@@ -1,26 +1,36 @@
 <template>
   <div>
     <div class="header-container">
-      <img class="header-img" src="../assets/vacation.jpg" alt="site title page. More To Explore Travel">
+      <img
+        class="header-img"
+        src="../assets/vacation.jpg"
+        alt="site title page. More To Explore Travel"
+      />
     </div>
-    <v-toolbar class="nav-bar" flat>
-      <v-toolbar-items
-        class="nav-btn"
-        @click="goToPage(item.url)"
-        v-for="item in displayNav"
-        :key="item.url"
-        :title="item.title"
-        height="10"
+
+    <div id="nav-btn" class="overlay">
+      <a href="javascript:void(0)" class="close-btn" @click="closeNav"
+        >&times;</a
       >
-      <li><a>{{ item.text }}</a></li>
-        <!-- <v-btn text color="black">{{ item.text }}</v-btn> -->
-      </v-toolbar-items>
-    </v-toolbar>
+      <div class="overlay-content">
+        <ul>
+          <li
+            v-for="item in displayNav"
+            :key="item.url"
+            @click="goToPage(item.url)"
+            class="nav-btn"
+          >
+            <a>{{ item.text }}</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <span class="menu-btn" @click="openNav">&#9776;</span>
   </div>
 </template>
 
 <script>
-
 export default {
   name: "Navigation",
   data() {
@@ -62,68 +72,135 @@ export default {
   },
   methods: {
     goToPage(page) {
-      let from = localStorage.getItem('LS_ROUTE_PATH');
-      if(from != page) {
+      let from = localStorage.getItem("LS_ROUTE_PATH");
+      if (from != page) {
         this.$router.push(page);
+        this.closeNav();
       }
+    },
+    closeNav() {
+      document.getElementById("nav-btn").style.width = "0%";
+    },
+    openNav() {
+      document.getElementById("nav-btn").style.width = "100%";
+      document.getElementById("app").style.overflow = "hidden";
     },
   },
   computed: {
     displayNav() {
-      return this.fullNav.filter(paths => paths.active);
-    }
-  }
+      return this.fullNav.filter((paths) => paths.active);
+    },
+  },
 };
 </script>
 
-<style>
-.nav-bar {
-  padding-left: 10%;
-}
-
-.nav-btn {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  display: inline-block;
-  margin-left: 6rem;
-  padding-top: .5rem;
-}
-
-.nav-btn li a {
-  color: blue;
-  text-decoration: none;
-  text-transform: uppercase;
-  position: relative;
-}
-
-.nav-btn li a:hover {
-  color: black;  
-}
-
-.nav-btn li a:before {
-  content: '';
-  display: block;
-  height: 5px;
-  background: #444;  
-
+<style scoped lang="scss">
+/* nav menue styling */
+.overlay {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  left: 0;
   top: 0;
-  width: 0%;
-
-  transition: all ease-in-out 250ms;
+  background-color: rgba(0, 0, 0, 0.9);
+  overflow: hidden;
+  transition: 0.5s;
 }
 
-.nav-btn li a:hover::before {
-width: 100%;
+.overlay-content {
+  position: relative;
+  top: 25%;
+  width: 100%;
+  text-align: center;
+  margin-top: 30px;
 }
 
-.header-container {
-  max-width: 1300px;
+.overlay a {
+  padding: 8px;
+  text-decoration: none;
+  font-size: 36px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+.overlay a:hover,
+.overlay a:focus {
+  color: #f1f1f1;
+}
+
+.overlay .close-btn {
+  position: absolute;
+  top: 0%;
+  right: 5%;
+  font-size: 60px;
+}
+
+.menu-btn {
+  position: absolute;
+  top: 1%;
+  right: 5%;
+  font-size: 45px;
+  color: white;
+}
+
+@media screen and (max-height: 450) {
+  .overlay a {
+    font-size: 20px;
+  }
+  .overlay .close-btn {
+    font-size: 40px;
+    top: 15px;
+    right: 35px;
+  }
+}
+
+ul {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  list-style-type: none;
+
+  li {
+    padding: 6px 0;
+
+    a {
+      position: relative;
+      display: block;
+      padding: 4px 0;
+      font-family: 'Libre Baskerville', serif;
+      color: #ecf0f1;
+      text-decoration: none;
+      text-transform: uppercase;
+      transition: 0.5s;
+
+      &::after {
+        position: absolute;
+        content: "";
+        top: 100%;
+        left: 0;
+        width: 100%;
+        height: 3px;
+        background: #3498db;
+        transform: scaleX(0);
+        transform-origin: right;
+        transition: transform 0.5s;
+      }
+
+      &:hover {
+        color: #95a5a6;
+      }
+
+      &:hover::after {
+        transform: scaleX(1);
+        transform-origin: left;
+      }
+    }
+  }
 }
 
 .header-img {
   width: 100%;
-  min-width: 500px;
 }
-
 </style>
