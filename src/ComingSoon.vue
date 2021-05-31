@@ -156,6 +156,8 @@ export default {
   font-family: "Libre Baskerville", serif;
   display: inline-block;
   width: 95%;
+  max-width: 750px;
+  min-width: 370px
 }
 
 .form-inputs {
