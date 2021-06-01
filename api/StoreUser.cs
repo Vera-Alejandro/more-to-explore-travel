@@ -51,7 +51,7 @@ namespace api
                         
                         log.LogInformation($"{rows} rows were inserted!");
 
-                        return new OkObjectResult($"Hello, Alejandro, \ndata has been inserted.");
+                        return new OkObjectResult($"Hello, \ndata has been inserted.");
                     }
                 }
             }
