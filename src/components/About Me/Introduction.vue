@@ -9,7 +9,7 @@
 
     <div class="img-cont">
       <aside class="profile-picture">
-        <img src="../../assets/ellie_profile_pic.png" alt="" />
+        <img src="https://moretoexploreapistorage.blob.core.windows.net/site-images/profile-pic.jpg" alt="" />
       </aside>
     </div>
   </div>

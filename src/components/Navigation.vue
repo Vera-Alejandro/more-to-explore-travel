@@ -1,11 +1,16 @@
 <template>
   <div>
     <div class="header-container">
-      <img
-        class="header-img"
-        src="../assets/vacation.jpg"
-        alt="site title page. More To Explore Travel"
-      />
+      <v-carousel>
+        <v-carousel-item
+        class="carousel-img"
+        v-for="(ss_img, i) in slideshow_images"
+        :key="i"
+        :src="ss_img.src"
+        reverse-transition="fade-transition"
+        transition="fade-transition"
+        ></v-carousel-item>
+      </v-carousel>
     </div>
 
     <div id="nav-btn" class="overlay">
@@ -68,6 +73,17 @@ export default {
           url: "/contact",
         },
       ],
+      slideshow_images: [
+        {
+          src: "https://moretoexploreapistorage.blob.core.windows.net/site-images/nav-img1.png" 
+        },
+        {
+          src: "https://moretoexploreapistorage.blob.core.windows.net/site-images/nav-img2.jpg" 
+        },
+        {
+          src: "https://moretoexploreapistorage.blob.core.windows.net/site-images/nav-img3.jpg" 
+        },
+      ]
     };
   },
   methods: {
@@ -144,6 +160,11 @@ export default {
   right: 5%;
   font-size: 45px;
   color: white;
+}
+
+.carousel-img{
+  width: 100%;
+  // height: 85%;
 }
 
 @media screen and (max-height: 450) {
