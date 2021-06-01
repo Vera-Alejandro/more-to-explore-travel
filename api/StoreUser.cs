@@ -21,7 +21,7 @@ namespace api
             HttpRequest req, ILogger log, ExecutionContext context)
         {
 
-            string conn_str = "Server=tcp:skynet-wopr.database.windows.net,1433;Initial Catalog=santa;Persist Security Info=False;User ID=heheman;Password=kE19w&nK7i4p0OP7ERtA;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
+            string conn_str = Environment.GetEnvironmentVariable("SQLConnectionString");
 
             if (string.IsNullOrEmpty(conn_str))
             {
