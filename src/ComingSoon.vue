@@ -121,8 +121,7 @@ export default {
 
       try {
         const response = await fetch(
-          "https://more-to-explore-api.azurewebsites.net/api/AddToNotificationList?",
-          // "http://localhost:7071/api/AddToNotificationList",
+          process.env.VUE_APP_API_ENDPOINT,
           requestOptions
         );
 

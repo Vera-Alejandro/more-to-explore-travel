@@ -39,12 +39,13 @@ namespace api
                 {
                     conn.Open();
 
-                    var query = "INSERT INTO EmailList VALUES (@fullName, @emailAddress);";
+                    var query = "INSERT INTO EmailList VALUES (@fullName, @emailAddress, @insertDate);";
 
                     using (SqlCommand cmd = new SqlCommand(query, conn))
                     {
                         cmd.Parameters.AddWithValue("@fullName", user.FullName);
                         cmd.Parameters.AddWithValue("@emailAddress", user.EmailAddress);
+                        cmd.Parameters.AddWithValue("@insertDate", DateTime.Now.ToLocalTime());
 
                         var rows = await cmd.ExecuteNonQueryAsync();
                         
