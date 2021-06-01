@@ -1,34 +1,68 @@
 <template>
-  <div class="img-container vacation-types">
-    <img class="vacation-type-img" src="../../assets/map-travel.jpg" alt="" />
-    <img class="vacation-type-img" src="../../assets/map-travel.jpg" alt="" />
-    <img class="vacation-type-img" src="../../assets/map-travel.jpg" alt="" />
+  <div class="img-group-container">
+    <div class="img-container">
+      <img
+        class="vacation-type-img"
+        src="https://moretoexploreapistorage.blob.core.windows.net/site-images/seaside-drinks.PNG"
+        alt=""
+      />
+      <p class="center-title">Romantic Getaway</p>
+    </div>
+    
+    <div class="img-container">
+      <img
+        class="vacation-type-img"
+        src="https://moretoexploreapistorage.blob.core.windows.net/site-images/beach.PNG"
+        alt=""
+      />
+      <p class="center-title">Family Adventures</p>
+    </div>
+
+    <div class="img-container">
+      <img
+        class="vacation-type-img"
+        src="https://moretoexploreapistorage.blob.core.windows.net/site-images/friend-vacation.PNG"
+        alt=""
+      />
+      <p class="center-title">Group Travel</p>
+    </div>
   </div>
 </template>
 
 <script>
 export default {
-        name: 'LetsGetInTouch',
-    data () {
-        return {
-
-        };
-    },
+  name: "LetsGetInTouch",
+  data: () => ({
+    
+  }),
 };
 </script>
 
 <style>
-.img-container {
+.img-group-container {
   display: flex;
-  margin: 2rem;
   justify-content: space-around;
+  height: 20rem;
+  margin: 0 2rem;
 }
 
-.vacation-types {
-  height: 17rem;
+.img-container {
+  padding: 1rem 2rem;
+  position: relative;
 }
 
-.vacation-type-img {
+.vacation-type-img{
   height: 100%;
+}
+
+.center-title{
+  position: absolute;
+  left: 57%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+
+  color: whitesmoke;
+  /* font-size: 3rem; */
+  font-family: "Satisfy", cursive;
 }
 </style>
