@@ -69,4 +69,11 @@ export default {
   font-size: 1.75rem;
   font-family: "Satisfy", cursive;
 }
+
+@media screen and (max-width: 600px) {
+  .img-group-container {
+    display: contents;
+  }
+}
+
 </style>
