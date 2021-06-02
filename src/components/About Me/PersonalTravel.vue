@@ -25,21 +25,21 @@
         <div class="odd-img">
           <img
             class="personal-vacation"
-            src="../../assets/map-travel.jpg"
+            src="https://moretoexploreapistorage.blob.core.windows.net/site-images/beach.PNG"
             alt=""
           />
         </div>
         <div class="even-img">
           <img
             class="personal-vacation"
-            src="../../assets/map-travel.jpg"
+            src="https://moretoexploreapistorage.blob.core.windows.net/site-images/beach.PNG"
             alt=""
           />
         </div>
         <div class="odd-img">
           <img
             class="personal-vacation"
-            src="../../assets/map-travel.jpg"
+            src="https://moretoexploreapistorage.blob.core.windows.net/site-images/beach.PNG"
             alt=""
           />
         </div>
@@ -71,7 +71,7 @@ export default {
 
 .travel-container {
   height: 15rem;
-  margin: 2rem;
+  padding: 2rem;
   padding-top: 1rem;
   clear: both;
   max-width: 1300px;

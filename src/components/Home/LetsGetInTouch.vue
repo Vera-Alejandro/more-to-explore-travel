@@ -3,13 +3,14 @@
     <div>
       <h2>Let's Get In Touch!</h2>
       <div>
-        <form>
+        <form class="input-form">
           <v-text-field
             v-model="name"
             :error-messages="nameErrors"
             :counter="25"
             label="Name"
             required
+            background-color="white"
             @input="$v.name.$touch()"
             @blur="$v.name.$touch()"
           ></v-text-field>
@@ -110,8 +111,25 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .text-wrap {
   color: black;
+}
+
+.contact {
+  padding: 2rem;
+  height: 30rem;
+  margin: 0;
+  max-width: 100%;
+  background-size: cover;
+}
+
+.input-form {
+  max-width: 750px;
+  align-items: center;
+  margin: 0 auto;
+}
+h2 {
+  text-align: center;
 }
 </style>
