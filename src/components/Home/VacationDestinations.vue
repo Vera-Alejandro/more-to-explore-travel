@@ -61,10 +61,11 @@ export default {
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-
+  padding: 20px;
+  text-align: center;
 
   color: whitesmoke;
-  background-color: grey;
+  background-color: rgba(81, 81, 81, 0.6);
   font-size: 1.75rem;
   font-family: "Satisfy", cursive;
 }
