@@ -7,14 +7,14 @@
       <VacationDestinations/>
       
       <v-divider></v-divider>
-      <!-- <Welcome/> -->
+      <Welcome/>
 
 
       <v-divider></v-divider>
-      <!-- <LetsGetInTouch/> -->
+      <LetsGetInTouch/>
 
       <v-divider></v-divider>
-      <!-- <InstagramFeed/> -->
+      <InstagramFeed/>
 
     </main>
   </div>
@@ -22,17 +22,17 @@
 
 <script>
 import VacationDestinations from './Home/VacationDestinations';
-// import Welcome from './Home/Welcome';
-// import LetsGetInTouch from './Home/LetsGetInTouch';
-// import InstagramFeed from './Home/InstagramFeed';
+import Welcome from './Home/Welcome';
+import LetsGetInTouch from './Home/LetsGetInTouch';
+import InstagramFeed from './Home/InstagramFeed';
 
 export default {
   name: "Home",
   components: {
     VacationDestinations,
-    // Welcome,
-    // LetsGetInTouch,
-    // InstagramFeed
+    Welcome,
+    LetsGetInTouch,
+    InstagramFeed
   },
   data() {
     return {};
