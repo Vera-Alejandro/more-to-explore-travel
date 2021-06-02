@@ -1,7 +1,7 @@
 <template>
   <div class="welcome-container">
     <div class="text-cont">
-      <h2>Welcome</h2>
+      <h2>Welcome!</h2>
       <article class="welcome-msg">
         <p>
           Lorem ipsum dolor sit amet, molestie enim, nec viverra sapien lacus in
@@ -10,22 +10,14 @@
           lacus, nec fermentum augue auctor et.
         </p>
       </article>
-      <v-btn @click="inDevAlert = true">Get To Know Me!</v-btn>
+      <v-btn class="aboutMeBtn" @click="redirectAboutMe" color="#224E7B">Get To Know Me!</v-btn>
     </div>
     <div class="img-cont">
       <aside class="welcome-img">
-        <img src="../../assets/map-travel.jpg" alt="" />
+        <img src="https://moretoexploreapistorage.blob.core.windows.net/site-images/profile-pic.jpg" alt="" />
       </aside>
     </div>
 
-    <v-snackbar v-model="inDevAlert">
-      'Getting To Know Me' feature is still in development.
-      <template v-slot:action="{ attrs }">
-        <v-btn color="green" text v-bind="attrs" @click="inDevAlert = false">
-          Close
-        </v-btn>
-      </template>
-    </v-snackbar>
   </div>
 </template>
 
@@ -37,21 +29,35 @@ export default {
       inDevAlert: false,
     };
   },
+  methods: {
+    redirectAboutMe() {
+      document.body.scrollTop = 0;
+      document.documentElement.scrollTop = 0;
+      this.$router.push('/aboutme');
+    }
+  }
 };
 </script>
 
-<style>
+<style scoped>
 .welcome-container {
-  height: 15rem;
-  margin: 2rem;
+  height: 20rem;
+  padding: 2rem;
   clear: both;
   max-width: 1300px;
+  background-image: linear-gradient(#3282b8, #bbe1fa);
 }
 
 .text-cont {
   width: 60%;
   height: 100%;
   float: left;
+}
+
+.text-cont h2{
+  font-family:"Satisfy", cursor;
+  color: whitesmoke;
+  font-size: 3rem;
 }
 
 .img-cont {
@@ -61,9 +67,9 @@ export default {
   text-align: center;
 }
 
-
 .welcome-msg {
   float: left;
+  padding-left: 1rem;
 }
 
 .welcome-img {
@@ -73,6 +79,14 @@ export default {
 
 .welcome-img img {
   max-height: 100%;
+  box-shadow: 10px;
+}
+
+.aboutMeBtn {
+  padding-left: .25rem;
+  margin: 1rem;
+  color: white;
+  font-family: "Libre Baskerville", serif;
 }
 
 aside {
