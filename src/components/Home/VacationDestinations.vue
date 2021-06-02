@@ -31,7 +31,7 @@
 
 <script>
 export default {
-  name: "LetsGetInTouch",
+  name: "VacationDestination",
   data: () => ({
     
   }),
@@ -40,7 +40,7 @@ export default {
 
 <style>
 .img-group-container {
-  display: flex;
+  display: inline-flex;
   justify-content: space-around;
   height: 20rem;
   margin: 0 2rem;
@@ -53,16 +53,19 @@ export default {
 
 .vacation-type-img{
   height: 100%;
+  width: 100%;
 }
 
 .center-title{
   position: absolute;
-  left: 57%;
+  left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
 
+
   color: whitesmoke;
-  /* font-size: 3rem; */
+  background-color: grey;
+  font-size: 1.75rem;
   font-family: "Satisfy", cursive;
 }
 </style>
