@@ -10,7 +10,7 @@
           lacus, nec fermentum augue auctor et.
         </p>
       </article>
-      <v-btn class="aboutMeBtn" @click="redirectAboutMe" color="#224E7B">Get To Know Me!</v-btn>
+      <v-btn class="aboutMeBtn" @click="redirectAboutMe" color="#BBE1FA">Get To Know Me!</v-btn>
     </div>
     <div class="img-cont">
       <aside class="welcome-img">
@@ -58,6 +58,8 @@ export default {
   font-family:"Satisfy", cursor;
   color: whitesmoke;
   font-size: 3rem;
+  font-weight: 500;
+
 }
 
 .img-cont {
@@ -69,8 +71,11 @@ export default {
 
 .welcome-msg {
   float: left;
+  font-weight: 300;
   padding-left: 1rem;
-}
+  font-family: "Libre Baskerville", serif;
+  color: white;
+}  
 
 .welcome-img {
   height: 25rem;
@@ -85,8 +90,12 @@ export default {
 .aboutMeBtn {
   padding-left: .25rem;
   margin: 1rem;
-  color: white;
+  color: #1B262C;
   font-family: "Libre Baskerville", serif;
+}
+
+p {
+
 }
 
 aside {

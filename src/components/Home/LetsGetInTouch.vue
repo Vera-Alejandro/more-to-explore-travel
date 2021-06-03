@@ -131,5 +131,7 @@ export default {
 }
 h2 {
   text-align: center;
+  font-family:"Satisfy", cursor;
+  font-size: 3rem;
 }
 </style>
