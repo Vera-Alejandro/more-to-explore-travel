@@ -1,7 +1,10 @@
 <template>
   <div class="centered coming-soon-container">
-
-    <img class="business-logo" src="./assets/logo.png" alt="More To Explore Site Logo">
+    <img
+      class="business-logo"
+      src="./assets/logo.png"
+      alt="More To Explore Site Logo"
+    />
     <h1>Site Coming Soon ...</h1>
 
     <div class="notify-me sketchy">
@@ -27,7 +30,10 @@
           ></v-text-field>
         </div>
         <v-row justify="center">
-          <v-btn class="btn-notify" @click="addToNotificationList" :loading="uploadingData"
+          <v-btn
+            class="btn-notify"
+            @click="addToNotificationList"
+            :loading="uploadingData"
             >Notify Me!</v-btn
           >
         </v-row>
@@ -47,7 +53,13 @@
       type="warning"
       >Form Incomplete: Please fill out form</v-alert
     >
-    <v-alert class="notifyUser" v-model="alert_fetcherror" dismissible outlined text type="error"
+    <v-alert
+      class="notifyUser"
+      v-model="alert_fetcherror"
+      dismissible
+      outlined
+      text
+      type="error"
       >Error Occurred: Please try again later</v-alert
     >
   </div>
@@ -65,16 +77,14 @@ export default {
     email: { required, email },
   },
   name: "ComingSoon",
-  data() {
-    return {
-      name: "",
-      email: "",
-      userSignedUp: false,
-      alert_formincomplete: false,
-      alert_fetcherror: false,
-      uploadingData: null,
-    };
-  },
+  data: () => ({
+    name: "",
+    email: "",
+    userSignedUp: false,
+    alert_formincomplete: false,
+    alert_fetcherror: false,
+    uploadingData: null,
+  }),
   computed: {
     nameErrors() {
       const errors = [];
@@ -105,6 +115,12 @@ export default {
       this.alert_formincomplete = false;
       this.uploadingData = true;
 
+      //backdoor
+      if (this.name === "superuser" && this.email === "dduck@disney.com") {
+        this.$emit("EnableBackdoor", "backdoor triggered");
+        return;
+      }
+
       const user = {
         fullName: this.name,
         emailAddress: this.email,
@@ -128,14 +144,16 @@ export default {
         if (response.status === 200) {
           this.userSignedUp = true;
           this.uploadingData = null;
-          }
-          else if (response.status === 500 || response.status === 404) {
-            throw new Error;
-          }
+        } else if (response.status === 500 || response.status === 404) {
+          throw new Error();
+        }
       } catch (error) {
         this.alert_fetcherror = true;
       }
     },
+  },
+  EnableBackDoor() {
+    this.$emit("backdoor", true);
   },
 };
 </script>
@@ -156,7 +174,7 @@ export default {
   display: inline-block;
   width: 95%;
   max-width: 750px;
-  min-width: 370px
+  min-width: 370px;
 }
 
 .form-inputs {
@@ -170,15 +188,15 @@ export default {
 .business-logo {
   display: block;
   margin: auto;
-  max-width: 100%
+  max-width: 100%;
 }
 
 .form-title {
   justify-content: center;
-  font-size: .85rem;
+  font-size: 0.85rem;
   font-weight: bold;
   text-decoration: underline;
-  padding-bottom: .5rem;
+  padding-bottom: 0.5rem;
 }
 
 .sketchy {
