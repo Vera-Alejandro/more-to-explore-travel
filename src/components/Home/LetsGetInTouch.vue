@@ -2,8 +2,8 @@
   <div class="container contact">
     <div>
       <h2>Let's Get In Touch!</h2>
-      <div>
-        <form class="input-form">
+      <div class="form-group">
+        <v-form class="input-form">
           <v-text-field
             v-model="name"
             :error-messages="nameErrors"
@@ -33,7 +33,7 @@
           ></v-textarea>
 
           <v-btn class="mr-4" @click="submit"> submit </v-btn>
-        </form>
+        </v-form>
       </div>
 
       <v-snackbar v-model="inDevAlert">
@@ -112,26 +112,37 @@ export default {
 </script>
 
 <style scoped>
-.text-wrap {
-  color: black;
+.container {
+  background-image: url(https://moretoexploreapistorage.blob.core.windows.net/site-images/beach-waves.png);
+  background-size: cover;
+}
+
+.form-group {
+  background-color: whitesmoke;
+  max-width: 780px;
+  margin: 0 auto;
 }
 
 .contact {
   padding: 2rem;
-  height: 30rem;
+  height: 35rem;
   margin: 0;
   max-width: 100%;
   background-size: cover;
 }
 
 .input-form {
-  max-width: 750px;
   align-items: center;
-  margin: 0 auto;
+  text-align: center;
+  padding: 0 15px;
+
 }
+
 h2 {
   text-align: center;
   font-family:"Satisfy", cursor;
   font-size: 3rem;
+  font-weight: 200;
+  color: whitesmoke;
 }
 </style>
