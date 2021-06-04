@@ -1,10 +1,10 @@
 <template>
   <div>
     <v-container class="welcome-container">
-      <v-row>
+      <v-row class="main-row">
 
 
-        <v-col class="text-cont">
+        <v-col class="text-cont" :cols="textColumnWidth">
           <v-row>
 
           <h2>Welcome!</h2>
@@ -23,7 +23,7 @@
           </v-row>
         </v-col>
 
-        <v-col class="img-cont">
+        <v-col class="img-cont" :cols="imageColumnWidth">
             <img
               src="https://moretoexploreapistorage.blob.core.windows.net/site-images/profile-pic.jpg"
               alt=""
@@ -61,53 +61,19 @@ export default {
       this.$router.push("/aboutme");
     },
   },
+  computed: {
+    textColumnWidth() { return window.innerWidth > 600 ? 8 : 0; },
+    imageColumnWidth() { return window.innerWidth > 600 ? 4 : 0; },
+    }
 };
 </script>
 
 <style scoped>
-.cont {
-  height: 320px;
-  width: 981px;
-  background-color: #3282b8;
-}
-
-.row1 {
-  height: 256px;
-  background-color: brown;
-}
-
-.text-col {
-  width: 60%;
-  background-color: yellow;
-}
-
-.pic-col {
-  /* width: 367px; */
-  background-color: greenyellow;
-}
-
-.msg-row {
-  background-color: aqua;
-  height: 80%;
-}
-
-.btn-row {
-  background-color: purple;
-  height: 30%;
-}
-
 .welcome-container {
-  height: 20rem;
   padding: 2rem;
   clear: both;
   max-width: 1300px;
   background-image: linear-gradient(#3282b8, #bbe1fa);
-}
-
-.text-cont {
-  width: 60%;
-  height: 100%;
-  float: left;
 }
 
 .text-cont h2 {
@@ -117,11 +83,18 @@ export default {
   font-weight: 500;
 }
 
+.text-cont {
+  padding: 2rem;
+}
+
 .img-cont {
-  width: 40%;
   height: 100%;
-  float: right;
-  text-align: center;
+  width: 100%;
+  padding-right: 2rem;
+}
+
+img {
+  width: 100%;
 }
 
 .welcome-msg {
@@ -132,15 +105,6 @@ export default {
   color: white;
 }
 
-.welcome-img {
-  height: 25rem;
-  max-width: 100%;
-}
-
-img {
-  height: 100%;
-  box-shadow: 10px;
-}
 
 .aboutMeBtn {
   padding-left: 0.25rem;
@@ -151,13 +115,24 @@ img {
 
 @media screen and (max-width: 600px) {
   .welcome-container {
-    height: 50rem;
+    height: 55rem;
+    flex-wrap: wrap;
+    text-align: center;
+  }
+
+  .main-row {
+    flex-direction: column;
   }
 
   .text-cont,
   .img-cont {
     width: 100%;
     height: 45%;
+  }
+
+  .img-cont {
+    padding: 0;
+    padding-top: 2.5rem;
   }
 
   .aboutMeBtn {
