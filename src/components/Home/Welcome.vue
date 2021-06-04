@@ -1,49 +1,35 @@
 <template>
-  <div>
-    <v-container class="welcome-container">
+  <div class="welcome-container">
+    <v-container>
       <v-row class="main-row">
-
-
         <v-col class="text-cont" :cols="textColumnWidth">
           <v-row>
-
-          <h2>Welcome!</h2>
-          <div class="welcome-msg">
-            <p>
-              Lorem ipsum dolor sit amet, molestie enim, nec viverra sapien
-              lacus in massa. Vivamus sodales, lacus mattis tincidunt efficitur,
-              erat nibh accumsan ex, et ornare ex ligula ut turpis. Sed interdum
-              placerat lacus, nec fermentum augue auctor et.
-            </p>
-          </div>
+            <h2>Welcome!</h2>
+            <div class="welcome-msg">
+              <p>
+                Lorem ipsum dolor sit amet, molestie enim, nec viverra sapien
+                lacus in massa. Vivamus sodales, lacus mattis tincidunt
+                efficitur, erat nibh accumsan ex, et ornare ex ligula ut turpis.
+                Sed interdum placerat lacus, nec fermentum augue auctor et.
+              </p>
+            </div>
           </v-row>
           <v-row>
-          <v-btn class="aboutMeBtn" @click="redirectAboutMe" color="#BBE1FA"
-            >Get To Know Me!</v-btn>
+            <v-btn class="aboutMeBtn" @click="redirectAboutMe" color="#BBE1FA"
+              >Get To Know Me!</v-btn
+            >
           </v-row>
         </v-col>
 
         <v-col class="img-cont" :cols="imageColumnWidth">
-            <img
-              src="https://moretoexploreapistorage.blob.core.windows.net/site-images/profile-pic.jpg"
-              alt=""
-            />
+          <img
+            src="https://moretoexploreapistorage.blob.core.windows.net/site-images/profile-pic.jpg"
+            alt=""
+          />
         </v-col>
-
-
       </v-row>
     </v-container>
   </div>
-
-  <!-- <v-container class="cont">
-    <v-row class="row1">
-      <v-col class="text-col">
-        <v-row class="msg-row"></v-row>
-        <v-row class="btn-row"></v-row>
-        </v-col>
-      <v-col class="pic-col"></v-col>
-    </v-row>
-  </v-container> -->
 </template>
 
 <script>
@@ -62,9 +48,14 @@ export default {
     },
   },
   computed: {
-    textColumnWidth() { return window.innerWidth > 600 ? 8 : 0; },
-    imageColumnWidth() { return window.innerWidth > 600 ? 4 : 0; },
-    }
+    textColumnWidth() {
+      console.log(window.outerWidth);
+      return window.outerWidth > 600 ? 8 : 0;
+    },
+    imageColumnWidth() {
+      return window.outerWidth > 600 ? 4 : 0;
+    },
+  },
 };
 </script>
 
@@ -72,8 +63,11 @@ export default {
 .welcome-container {
   padding: 2rem;
   clear: both;
-  max-width: 1300px;
   background-image: linear-gradient(#3282b8, #bbe1fa);
+}
+
+.main-row {
+  max-width: 1100px;
 }
 
 .text-cont h2 {
@@ -93,10 +87,6 @@ export default {
   padding-right: 2rem;
 }
 
-img {
-  width: 100%;
-}
-
 .welcome-msg {
   float: left;
   font-weight: 300;
@@ -104,7 +94,6 @@ img {
   font-family: "Libre Baskerville", serif;
   color: white;
 }
-
 
 .aboutMeBtn {
   padding-left: 0.25rem;
@@ -118,6 +107,7 @@ img {
     height: 55rem;
     flex-wrap: wrap;
     text-align: center;
+    width: 100%;
   }
 
   .main-row {
@@ -148,14 +138,14 @@ img {
     width: 100%;
     height: 100%;
   }
-
-  img {
-    width: 100%;
-    height: 100%;
-  }
 }
 
 aside {
   max-height: 100%;
+}
+
+img {
+  width: 100%;
+  height: 100%;
 }
 </style>
