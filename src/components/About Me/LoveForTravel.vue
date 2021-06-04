@@ -25,7 +25,7 @@ export default {
 
 <style scoped>
 .main-container {
-  background-color: #107E98;
+  background-image: linear-gradient(#0f4c75, #bbe1fa);
 }
 
 .intro-container {
