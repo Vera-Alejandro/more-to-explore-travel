@@ -3,7 +3,7 @@
     <div class="img-container">
       <img
         class="vacation-type-img"
-        src="https://moretoexploreapistorage.blob.core.windows.net/site-images/seaside-drinks.PNG"
+        src="https://moretoexploreapistorage.blob.core.windows.net/site-images/seaside-drinks.jpg"
         alt=""
       />
       <p class="center-title">Romantic Getaway</p>
@@ -12,7 +12,7 @@
     <div class="img-container">
       <img
         class="vacation-type-img"
-        src="https://moretoexploreapistorage.blob.core.windows.net/site-images/beach.PNG"
+        src="https://moretoexploreapistorage.blob.core.windows.net/site-images/beach.jpg"
         alt=""
       />
       <p class="center-title">Family Adventures</p>
@@ -21,7 +21,7 @@
     <div class="img-container">
       <img
         class="vacation-type-img"
-        src="https://moretoexploreapistorage.blob.core.windows.net/site-images/friend-vacation.PNG"
+        src="https://moretoexploreapistorage.blob.core.windows.net/site-images/friend-vacation.jpg"
         alt=""
       />
       <p class="center-title">Group Travel</p>
@@ -54,6 +54,7 @@ export default {
 .vacation-type-img{
   height: 100%;
   width: 100%;
+  filter: brightness(85%);
 }
 
 .center-title{
@@ -65,7 +66,6 @@ export default {
   text-align: center;
 
   color: whitesmoke;
-  background-color: rgba(81, 81, 81, 0.6);
   font-size: 1.75rem;
   font-family: "Satisfy", cursive;
 }
