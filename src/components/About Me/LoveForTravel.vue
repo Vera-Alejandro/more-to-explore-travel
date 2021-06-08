@@ -26,10 +26,11 @@ export default {
 <style scoped>
 .main-container {
   background-image: linear-gradient(#0f4c75, #bbe1fa);
+  display: flex;
+  text-align: center;
 }
 
 .intro-container {
-  height: 10rem;
   margin: 2rem;
   padding-top: 1rem;
   clear: both;
@@ -39,17 +40,17 @@ export default {
 .text-cont {
   width: 100%;
   height: 100%;
-  float: left;
+  font-family: "Libre Baskerville", serif;
 }
 
 .local-title {
   font-family: "Satisfy", cursive;
   font-size: 2rem;
   color: white;
+  padding-bottom: 1rem;
 }
 
 .reasons-for-travel {
-  float: left;
   color: white;
 }
 
