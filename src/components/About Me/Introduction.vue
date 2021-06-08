@@ -46,41 +46,29 @@ export default {
 }
 
 .intro-container {
-  height: 15rem;
-  margin: 2rem;
   clear: both;
   max-width: 1300px;
 }
 
-.text-cont {
-  width: 60%;
+.main-row {
   height: 100%;
-  float: left;
 }
 
-.img-cont {
-  width: 40%;
+.img-container, .text-cont {
   height: 100%;
-  float: right;
-  text-align: center;
 }
 
 .welcome-msg {
-  float: left;
-}
-
-.profile-picture {
-  height: 25rem;
-  max-width: 100%;
-}
-
-.profile-picture img {
-  max-height: 100%;
+  font-family: "Libre Baskerville", serif;
+  font-size: 1.25rem;
+  padding: 2rem;
+  padding-top: 2.5rem;
+  text-align: center;
+  
 }
 
 @media screen and (max-width: 600px) {
   .intro-container {
-    height: 40rem;
     flex-wrap: wrap;
     text-align: center;
   }
@@ -103,6 +91,11 @@ export default {
     width: 100%;
   }
 
+}
+
+img {
+  height: 100%;
+  width: 100%;
 }
 
 </style>
