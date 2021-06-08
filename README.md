@@ -1,24 +1,5 @@
-# more-to-explore-travel
+# More To Explore Travel Website
 
-## Project setup
-```
-npm install
-```
+## Vue Architecture 
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+![Vue Architexure](./src/assets/MTEX-Vue-Architecture.drawio.png)
