@@ -64,7 +64,10 @@ export default {
   padding: 2rem;
   padding-top: 2.5rem;
   text-align: center;
-  
+}
+
+.profile-pic {
+    border-radius: 50px;
 }
 
 @media screen and (max-width: 600px) {
@@ -89,6 +92,7 @@ export default {
   .profile-pic {
     height: 100%;
     width: 100%;
+    padding: 1rem;
   }
 
 }
