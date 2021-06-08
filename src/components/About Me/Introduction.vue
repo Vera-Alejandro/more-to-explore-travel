@@ -46,37 +46,19 @@ export default {
 }
 
 .intro-container {
-  height: 15rem;
-  margin: 2rem;
+  /* height: 15rem; */
   clear: both;
   max-width: 1300px;
 }
 
-.text-cont {
-  width: 60%;
+.main-row {
   height: 100%;
-  float: left;
 }
 
-.img-cont {
-  width: 40%;
+.img-container, .text-cont {
   height: 100%;
-  float: right;
-  text-align: center;
 }
 
-.welcome-msg {
-  float: left;
-}
-
-.profile-picture {
-  height: 25rem;
-  max-width: 100%;
-}
-
-.profile-picture img {
-  max-height: 100%;
-}
 
 @media screen and (max-width: 600px) {
   .intro-container {
@@ -103,6 +85,11 @@ export default {
     width: 100%;
   }
 
+}
+
+img {
+  height: 100%;
+  width: 100%;
 }
 
 </style>

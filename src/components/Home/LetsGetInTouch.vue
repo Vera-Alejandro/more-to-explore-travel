@@ -121,6 +121,8 @@ export default {
   background-color: whitesmoke;
   max-width: 780px;
   margin: 0 auto;
+  border-radius: 10px;
+  padding-bottom: 1.5rem;
 }
 
 .contact {
