@@ -7,11 +7,7 @@
             <h2>Welcome!</h2>
             <div class="welcome-msg">
               <p>
-                I'm Ellie, and welcome to More to Explore Travel! 
-                I have always loved to travel with my family and freidns, try new foods, 
-                and experience different cultures. Now, it is my goal to help others do the same. 
-                If you are looking to go on a stress-free, unforgettable getaway with your loved ones, 
-                you came to the right place!
+                {{ welcomeParagraph }}
               </p>
             </div>
           </v-row>
@@ -24,7 +20,7 @@
 
         <v-col class="img-cont" :cols="imageColumnWidth">
           <img
-            src="https://moretoexploreapistorage.blob.core.windows.net/site-images/profile-pic.jpg"
+            src="https://moretoexploreapistorage.blob.core.windows.net/site-images/ellie-seaside.png"
             alt=""
           />
         </v-col>
@@ -38,6 +34,7 @@ export default {
   name: "Welcome",
   data() {
     return {
+      welcomeParagraph: "Hi everyone! I'm Ellie Boyer, owner of More to Explore Travel. As a travel advisor, it's my goal to make traveling simpler and more achievable for couples, groups, and families. It's also my goal for all of my clients to have unforgettable experiences and create wonderful memories while traveling the world together. If you're looking to travel more and stress less, you've come to the right place. Remember, there's always more to explore!",
       inDevAlert: false,
     };
   },
@@ -134,10 +131,6 @@ export default {
 
   .welcome-msg {
     padding-bottom: 2rem;
-  }
-  .welcome-img {
-    width: 100%;
-    height: 100%;
   }
 }
 
