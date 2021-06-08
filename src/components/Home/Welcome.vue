@@ -102,7 +102,6 @@ export default {
 
 @media screen and (max-width: 600px) {
   .welcome-container {
-    height: 55rem;
     flex-wrap: wrap;
     text-align: center;
     width: 100%;
@@ -119,7 +118,6 @@ export default {
   }
 
   .img-cont {
-    padding: 0;
     padding-top: 2.5rem;
   }
 
@@ -141,5 +139,6 @@ aside {
 img {
   width: 100%;
   height: 100%;
+  border-radius: 25px;
 }
 </style>
