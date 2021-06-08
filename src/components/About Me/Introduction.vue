@@ -46,7 +46,6 @@ export default {
 }
 
 .intro-container {
-  /* height: 15rem; */
   clear: both;
   max-width: 1300px;
 }
@@ -59,10 +58,17 @@ export default {
   height: 100%;
 }
 
+.welcome-msg {
+  font-family: "Libre Baskerville", serif;
+  font-size: 1.25rem;
+  padding: 2rem;
+  padding-top: 2.5rem;
+  text-align: center;
+  
+}
 
 @media screen and (max-width: 600px) {
   .intro-container {
-    height: 40rem;
     flex-wrap: wrap;
     text-align: center;
   }
