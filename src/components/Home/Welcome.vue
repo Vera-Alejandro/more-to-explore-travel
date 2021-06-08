@@ -34,7 +34,7 @@ export default {
   name: "Welcome",
   data() {
     return {
-      welcomeParagraph: "Hi everyone! I'm Ellie Boyer, owner of More to Explore Travel. As a travel advisor, it's my goal to make traveling simpler and more achievable for couples, groups, and families. It's also my goal for all of my clients to have unforgettable experiences and create wonderful memories while traveling the world together. If you're looking to travel more and stress less, you've come to the right place. Remember, there's always more to explore!",
+      welcomeParagraph: "Hi everyone! I’m Ellie Boyer, owner of More to Explore Travel. As a travel advisor, it’s my goal to make traveling simpler and more achievable for couples, groups, and families. It’s also my goal for all of my clients to have unforgettable experiences and create wonderful memories while traveling the world together. If you’re looking to travel more and stress less, you’ve come to the right place. Remember, there’s always more to explore!",
       inDevAlert: false,
     };
   },
