@@ -7,10 +7,11 @@
             <h2>Welcome!</h2>
             <div class="welcome-msg">
               <p>
-                Lorem ipsum dolor sit amet, molestie enim, nec viverra sapien
-                lacus in massa. Vivamus sodales, lacus mattis tincidunt
-                efficitur, erat nibh accumsan ex, et ornare ex ligula ut turpis.
-                Sed interdum placerat lacus, nec fermentum augue auctor et.
+                I'm Ellie, and welcome to More to Explore Travel! 
+                I have always loved to travel with my family and freidns, try new foods, 
+                and experience different cultures. Now, it is my goal to help others do the same. 
+                If you are looking to go on a stress-free, unforgettable getaway with your loved ones, 
+                you came to the right place!
               </p>
             </div>
           </v-row>
