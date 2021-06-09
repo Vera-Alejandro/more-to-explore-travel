@@ -110,8 +110,45 @@ export default {
 };
 </script>
 
-<style>
-.text-wrap {
-  color: black;
+<style scoped>
+.container {
+  background-image: url(https://moretoexploreapistorage.blob.core.windows.net/site-images/beach-waves.png);
+  background-size: cover;
+}
+
+.form-group {
+  background-color: whitesmoke;
+  max-width: 780px;
+  margin: 0 auto;
+  border-radius: 10px;
+  padding-bottom: 1.5rem;
+}
+
+.contact {
+  padding: 2rem;
+  height: 35rem;
+  margin: 0;
+  max-width: 100%;
+  background-size: cover;
+}
+
+.input-form {
+  align-items: center;
+  text-align: center;
+  padding: 0 15px;
+
+}
+
+.alerts {
+  position: absolute;
+  bottom: 0px;
+}
+
+h2 {
+  text-align: center;
+  font-family:"Satisfy", cursor;
+  font-size: 3rem;
+  font-weight: 200;
+  color: whitesmoke;
 }
 </style>
