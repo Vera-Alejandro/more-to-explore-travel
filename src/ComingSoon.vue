@@ -1,6 +1,5 @@
 <template>
   <div>
-    <!-- <div class="centered coming-soon-container"> -->
     <v-row class="soon-cont">
       <v-row class="logo">
         <img
