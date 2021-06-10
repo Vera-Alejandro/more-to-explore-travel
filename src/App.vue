@@ -20,6 +20,14 @@
               >www.flaticon.com</a
             >
           </div>
+          <div>
+            <a
+              href="https://app.termly.io/notify/22e25919-73a5-4ac2-bd22-6d6e360f992a"
+            >
+              Do not sell my info
+            </a>
+            <a href="/privacypolicy"> Privacy Policy</a>
+          </div>
         </v-col>
       </v-footer>
     </div>
@@ -60,7 +68,18 @@ export default {
       this.backdoorEnabled = true;
       document.body.scrollTop = 0;
       document.documentElement.scrollTop = 0;
-      // this.$router.push("/aboutme");
+    },
+    goToPrivacyPolicy() {
+      let from = localStorage.getItem("LS_ROUTE_PATH");
+      const ppPath = "/privacypolicy";
+
+      if (from != ppPath) {
+        this.$router.push(ppPath);
+        console.log(this.$route.query.page);
+
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+      }
     },
   },
 };

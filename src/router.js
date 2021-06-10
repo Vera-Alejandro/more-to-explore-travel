@@ -29,6 +29,11 @@ const routes = [
         name: 'Contact',
         component: () => import('@/components/Contact.vue')
     },
+    {
+        path: '/privacypolicy',
+        name: 'Privacy Policy',
+        component: () => import('@/components/PrivacyPolicy.vue')
+    },
 ]
 
 const router = new VueRouter({
