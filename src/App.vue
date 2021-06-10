@@ -1,7 +1,7 @@
 <template>
   <v-app>
-    <div v-if="releaseStatus === 'SiteReady'">
-      <Navigation/>
+    <div v-if="releaseStatus === 'SiteReady' || backdoorEnabled">
+      <Navigation />
       <v-main>
         <router-view :key="$route.fullPath" />
       </v-main>
@@ -23,8 +23,8 @@
         </v-col>
       </v-footer>
     </div>
-    <div v-if="releaseStatus === 'ComingSoon'">
-      <CommingSoon />
+    <div v-if="releaseStatus === 'ComingSoon' && backdoorEnabled === false">
+      <CommingSoon @EnableBackdoor="RevealSite" />
     </div>
   </v-app>
 </template>
@@ -32,13 +32,15 @@
 <script>
 import Navigation from "./components/Navigation";
 import CommingSoon from "./ComingSoon";
-import { ApplicationInsights } from '@microsoft/applicationinsights-web'
+import { ApplicationInsights } from "@microsoft/applicationinsights-web";
 
-const appInsights = new ApplicationInsights({ config: {
-  instrumentationKey: '4fc69f0e-a627-440f-8adb-85dad0c8d7ea'
-} });
+const appInsights = new ApplicationInsights({
+  config: {
+    instrumentationKey: "4fc69f0e-a627-440f-8adb-85dad0c8d7ea",
+  },
+});
 appInsights.loadAppInsights();
-appInsights.trackPageView(); 
+appInsights.trackPageView();
 
 export default {
   name: "App",
@@ -50,7 +52,17 @@ export default {
 
   data: () => ({
     releaseStatus: process.env.VUE_APP_RELEASE_READY,
+    backdoorEnabled: false,
   }),
+  methods: {
+    RevealSite(value) {
+      console.log(value);
+      this.backdoorEnabled = true;
+      document.body.scrollTop = 0;
+      document.documentElement.scrollTop = 0;
+      // this.$router.push("/aboutme");
+    },
+  },
 };
 </script>
 
@@ -58,5 +70,4 @@ export default {
 .icon-shoutout {
   font-size: 10px;
 }
-
 </style>

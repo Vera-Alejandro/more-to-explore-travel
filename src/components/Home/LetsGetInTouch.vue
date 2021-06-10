@@ -2,14 +2,15 @@
   <div class="container contact">
     <div>
       <h2>Let's Get In Touch!</h2>
-      <div>
-        <form>
+      <div class="form-group">
+        <v-form class="input-form">
           <v-text-field
             v-model="name"
             :error-messages="nameErrors"
             :counter="25"
             label="Name"
             required
+            background-color="white"
             @input="$v.name.$touch()"
             @blur="$v.name.$touch()"
           ></v-text-field>
@@ -32,7 +33,7 @@
           ></v-textarea>
 
           <v-btn class="mr-4" @click="submit"> submit </v-btn>
-        </form>
+        </v-form>
       </div>
 
       <v-snackbar v-model="inDevAlert">
