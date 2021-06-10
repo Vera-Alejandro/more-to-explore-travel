@@ -95,7 +95,7 @@ export default {
     name: "",
     email: "",
     userSignedUp: false,
-    alert_formincomplete: true,
+    alert_formincomplete: false,
     alert_fetcherror: false,
     uploadingData: null,
   }),
@@ -203,8 +203,9 @@ export default {
 
 .alerts {
   position: fixed;
+  width: 100%;
   bottom: 0;
-  margin-left: 1.5rem;
+  padding: 0 1rem;
 }
 
 .notifyUser {
@@ -238,36 +239,4 @@ h1 {
   font-size: 2rem;
 }
 
-/* .centered {
-  top: 5%;
-  left: 25%;
-}
-
-.coming-soon-container {
-  text-align: center;
-  padding: 0 2rem;
-} 
-
-.notify-me {
-  font-family: "Libre Baskerville", serif;
-  display: inline-block;
-  width: 95%;
-  max-width: 750px;
-  min-width: 370px;
-}
-
-.form-inputs {
-  margin-bottom: 1rem;
-}
-
-.btn-notify {
-  margin-top: 1rem;
-}
-
-.thank-you {
-  font-size: 1.5rem;
-}
-
-
- */
 </style>
