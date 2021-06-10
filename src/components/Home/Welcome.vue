@@ -73,6 +73,7 @@ export default {
   color: whitesmoke;
   font-size: 3rem;
   font-weight: 500;
+  margin: auto;
 }
 
 .text-cont {
