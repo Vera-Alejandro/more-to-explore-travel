@@ -140,6 +140,11 @@ export default {
 
 }
 
+.alerts {
+  position: absolute;
+  bottom: 0px;
+}
+
 h2 {
   text-align: center;
   font-family:"Satisfy", cursor;
