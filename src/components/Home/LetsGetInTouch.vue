@@ -121,6 +121,8 @@ export default {
   background-color: whitesmoke;
   max-width: 780px;
   margin: 0 auto;
+  border-radius: 10px;
+  padding-bottom: 1.5rem;
 }
 
 .contact {
@@ -136,6 +138,11 @@ export default {
   text-align: center;
   padding: 0 15px;
 
+}
+
+.alerts {
+  position: absolute;
+  bottom: 0px;
 }
 
 h2 {
