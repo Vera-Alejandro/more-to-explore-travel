@@ -49,7 +49,8 @@ export default {
         },
         {
           text: "Services",
-          active: true,
+          //Vacations
+          active: false,
           url: "/services",
         },
         {
@@ -59,12 +60,12 @@ export default {
         },
         {
           text: "Blog",
-          active: true,
+          active: false,
           url: "/blog",
         },
         {
           text: "Contact",
-          active: true,
+          active: false,
           url: "/contact",
         },
       ],

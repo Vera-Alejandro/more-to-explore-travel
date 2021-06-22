@@ -7,7 +7,9 @@
       </v-main>
       <v-footer>
         <v-col class="text-center">
-          {{ new Date().getFullYear() }} - <strong>Alejandro</strong>
+          <a href="https://veraalejandro.com">
+          {{ new Date().getFullYear() }} - <strong>Built by Alejandro</strong>
+          </a>
           <div class="icon-shoutout">
             Icons made by
             <a
@@ -36,7 +38,7 @@ import { ApplicationInsights } from "@microsoft/applicationinsights-web";
 
 const appInsights = new ApplicationInsights({
   config: {
-    instrumentationKey: "4fc69f0e-a627-440f-8adb-85dad0c8d7ea",
+    instrumentationKey: process.env.VUE_APP_INSTRUMENTAION_KEY
   },
 });
 appInsights.loadAppInsights();
