@@ -7,7 +7,7 @@
       </v-main>
       <v-footer>
         <v-col class="text-center">
-          <a href="https://veraalejandro.com">
+          <a href="https://veraalejandro.com" target="_blank">
           {{ new Date().getFullYear() }} - <strong>Built by Alejandro</strong>
           </a>
           <div class="icon-shoutout">
