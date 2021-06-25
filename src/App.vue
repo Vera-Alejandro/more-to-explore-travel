@@ -55,12 +55,10 @@ export default {
     backdoorEnabled: false,
   }),
   methods: {
-    RevealSite(value) {
-      console.log(value);
+    RevealSite() {
       this.backdoorEnabled = true;
       document.body.scrollTop = 0;
       document.documentElement.scrollTop = 0;
-      // this.$router.push("/aboutme");
     },
   },
 };

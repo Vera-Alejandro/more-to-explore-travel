@@ -3,16 +3,20 @@
     <v-row class="header-row">
       <v-col class="split-col">
         <v-row class="logo-row">
-          <div class="logo-cont">
+          <div class="logo-cont" align-center>
             <h1 id="logo-title">More To Explore</h1>
           </div>
         </v-row>
-        <v-row id="img-1" class="header-img">
-          <v-img src="https://moretoexploreapistorage.blob.core.windows.net/site-images/OceanandCliffs.jpg"  max-width="350"></v-img>
+        <v-row class="header-img">
+          <v-img id="img-1"  src="https://moretoexploreapistorage.blob.core.windows.net/site-images/OceanandCliffs.jpg"  max-width="350"></v-img>
         </v-row>
       </v-col>
-      <v-col id="img-2" class="header-img"></v-col>
-      <v-col id="img-3" class="header-img"></v-col>
+      <v-col  class="header-img">
+        <v-img id="img-2" src="https://moretoexploreapistorage.blob.core.windows.net/site-images/BeachView.jpg"></v-img>
+      </v-col>
+      <v-col  class="header-img">
+        <v-img id="img-3" src="https://moretoexploreapistorage.blob.core.windows.net/site-images/PalmTreeLightHouse.jpg"></v-img>
+      </v-col>
     </v-row>
 
     <div id="nav-btn" class="overlay">
@@ -89,7 +93,6 @@ export default {
       
       if (from != page) {
         this.$router.push(page);
-        console.log(this.$route.query.page);
         this.closeNav();
       }
     },
@@ -118,48 +121,44 @@ export default {
 
 .header-row {
   height: 100%;
-  background-color: lightgray;
-}
-
-.split-col {
-  background-color: #3498db;
 }
 
 .logo-row {
-  background-color: lightblue;
   height: 30%;
-  display: flex;
 }
 
 .logo-cont { 
-  justify-content: center;
-  align-items: center;
+  height: 100%;
+  width: 100%;
+  position: relative;
 }
 
 #img-1 {
-  background-color: lightcoral;
   height: 60%;
   width: auto;
+  margin: 2rem 0 0 2rem;
 }
 
 #img-2 {
-  background-color: lightgreen;
-  
+  max-height: 45vh;
+  max-width: 30vw;
+  margin-top: 10rem;
 }
 
 #img-3 {
-  background-color: lightpink;
+  max-width: 30vw;
+  margin-top: 10rem;
 }
 
 #logo-title {
-  color: burlywood;
+  color: #4E5255;
   text-align: center;
-  vertical-align: middle;
-  // margin: 0 auto;
-  height: 100%;
-  width: 100%;
-  // justify-content: center;
-  // align-items: center;
+  position: absolute;
+  width: 15rem;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 3rem;
 }
 
 

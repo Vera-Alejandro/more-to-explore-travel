@@ -47,7 +47,6 @@ export default {
   },
   computed: {
     textColumnWidth() {
-      console.log(window.outerWidth);
       return window.outerWidth > 600 ? 8 : 0;
     },
     imageColumnWidth() {
