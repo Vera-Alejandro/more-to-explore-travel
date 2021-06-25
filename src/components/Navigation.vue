@@ -1,17 +1,13 @@
 <template>
-  <div>
-    <div class="header-container">
-      <v-carousel>
-        <v-carousel-item
-        class="carousel-img"
-        v-for="(ss_img, i) in slideshow_images"
-        :key="i"
-        :src="ss_img.src"
-        reverse-transition="fade-transition"
-        transition="fade-transition"
-        ></v-carousel-item>
-      </v-carousel>
-    </div>
+  <div class="home-header">
+    <v-row class="header-row">
+      <v-col class="split-col">
+        <v-row class="logo-row"></v-row>
+        <v-row id="img-1" class="header-img"></v-row>
+      </v-col>
+      <v-col id="img-2" class="header-img"></v-col>
+      <v-col id="img-3" class="header-img"></v-col>
+    </v-row>
 
     <div id="nav-btn" class="overlay">
       <a href="javascript:void(0)" class="close-btn" @click="closeNav"
@@ -109,6 +105,43 @@ export default {
 
 <style scoped lang="scss">
 /* nav menue styling */
+.home-header {
+  background-color:black;
+  height: 60vh;
+}
+
+.header-row {
+  height: 100%;
+  background-color: lightgray;
+}
+
+.split-col {
+  background-color: #3498db;
+}
+
+.logo-row {
+  background-color: lightblue;
+  height: 40%;
+}
+
+
+#img-1 {
+  background-color: lightcoral;
+  height: 60%;
+  width: auto;
+}
+
+#img-2 {
+  background-color: lightgreen;
+  
+}
+
+#img-3 {
+  background-color: lightpink;
+}
+
+
+
 .overlay {
   height: 100%;
   width: 0;
