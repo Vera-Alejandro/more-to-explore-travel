@@ -2,8 +2,14 @@
   <div class="home-header">
     <v-row class="header-row">
       <v-col class="split-col">
-        <v-row class="logo-row"></v-row>
-        <v-row id="img-1" class="header-img"></v-row>
+        <v-row class="logo-row">
+          <div class="logo-cont">
+            <h1 id="logo-title">More To Explore</h1>
+          </div>
+        </v-row>
+        <v-row id="img-1" class="header-img">
+          <v-img src="https://moretoexploreapistorage.blob.core.windows.net/site-images/OceanandCliffs.jpg"  max-width="350"></v-img>
+        </v-row>
       </v-col>
       <v-col id="img-2" class="header-img"></v-col>
       <v-col id="img-3" class="header-img"></v-col>
@@ -121,9 +127,14 @@ export default {
 
 .logo-row {
   background-color: lightblue;
-  height: 40%;
+  height: 30%;
+  display: flex;
 }
 
+.logo-cont { 
+  justify-content: center;
+  align-items: center;
+}
 
 #img-1 {
   background-color: lightcoral;
@@ -140,6 +151,16 @@ export default {
   background-color: lightpink;
 }
 
+#logo-title {
+  color: burlywood;
+  text-align: center;
+  vertical-align: middle;
+  // margin: 0 auto;
+  height: 100%;
+  width: 100%;
+  // justify-content: center;
+  // align-items: center;
+}
 
 
 .overlay {
