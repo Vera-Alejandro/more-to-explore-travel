@@ -1,7 +1,7 @@
 <template>
   <div>
     <header>
-      <h1>More To Explore Travel</h1>
+      <HomeHeader/>
     </header>
     <main>
       <VacationDestinations/>
@@ -25,10 +25,12 @@ import VacationDestinations from './Home/VacationDestinations';
 import Welcome from './Home/Welcome';
 import LetsGetInTouch from './Home/LetsGetInTouch';
 import InstagramFeed from './Home/InstagramFeed';
+import HomeHeader from './Home/HomeHeader';
 
 export default {
   name: "Home",
   components: {
+    HomeHeader,
     VacationDestinations,
     Welcome,
     LetsGetInTouch,
