@@ -1,24 +1,5 @@
 <template>
   <div class="home-header">
-    <v-row class="header-row">
-      <v-col class="split-col">
-        <v-row class="logo-row">
-          <div class="logo-cont" align-center>
-            <h1 id="logo-title">More To Explore</h1>
-          </div>
-        </v-row>
-        <v-row class="header-img">
-          <v-img id="img-1"  src="https://moretoexploreapistorage.blob.core.windows.net/site-images/OceanandCliffs.jpg"  max-width="350"></v-img>
-        </v-row>
-      </v-col>
-      <v-col  class="header-img">
-        <v-img id="img-2" src="https://moretoexploreapistorage.blob.core.windows.net/site-images/BeachView.jpg"></v-img>
-      </v-col>
-      <v-col  class="header-img">
-        <v-img id="img-3" src="https://moretoexploreapistorage.blob.core.windows.net/site-images/PalmTreeLightHouse.jpg"></v-img>
-      </v-col>
-    </v-row>
-
     <div id="nav-btn" class="overlay">
       <a href="javascript:void(0)" class="close-btn" @click="closeNav"
         >&times;</a
@@ -116,51 +97,8 @@ export default {
 /* nav menue styling */
 .home-header {
   background-color:black;
-  height: 60vh;
+  height: 7vh;
 }
-
-.header-row {
-  height: 100%;
-}
-
-.logo-row {
-  height: 30%;
-}
-
-.logo-cont { 
-  height: 100%;
-  width: 100%;
-  position: relative;
-}
-
-#img-1 {
-  height: 60%;
-  width: auto;
-  margin: 2rem 0 0 2rem;
-}
-
-#img-2 {
-  max-height: 45vh;
-  max-width: 30vw;
-  margin-top: 10rem;
-}
-
-#img-3 {
-  max-width: 30vw;
-  margin-top: 10rem;
-}
-
-#logo-title {
-  color: #4E5255;
-  text-align: center;
-  position: absolute;
-  width: 15rem;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 3rem;
-}
-
 
 .overlay {
   height: 100%;
@@ -209,11 +147,6 @@ export default {
   right: 5%;
   font-size: 45px;
   color: white;
-}
-
-.carousel-img{
-  width: 100%;
-  // height: 85%;
 }
 
 @media screen and (max-height: 450) {
