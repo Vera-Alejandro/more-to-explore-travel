@@ -1,52 +1,23 @@
 <template>
-  <div class="container contact">
-    <div>
-      <h2>Let's Get In Touch!</h2>
-      <div class="form-group">
-        <v-form class="input-form">
-          <v-text-field
-            v-model="name"
-            :error-messages="nameErrors"
-            :counter="25"
-            label="Name"
-            required
-            background-color="white"
-            @input="$v.name.$touch()"
-            @blur="$v.name.$touch()"
-          ></v-text-field>
-          <v-text-field
-            v-model="email"
-            :error-messages="emailErrors"
-            label="E-mail"
-            required
-            @input="$v.email.$touch()"
-            @blur="$v.email.$touch()"
-          ></v-text-field>
-          <v-textarea
-            v-model="message"
-            :error-messages="messageErrors"
-            label="Message"
-            required
-            class="text-justify"
-            @change="$v.select.$touch()"
-            @blur="$v.select.$touch()"
-          ></v-textarea>
+  <v-container>
+    <v-row>
+      <v-col :cols="4">
+        <v-img src="https://moretoexploreapistorage.blob.core.windows.net/site-images/RoadTrip.jpg" max-height="450" :aspect-ratio="4/5"></v-img>
+      </v-col>
+      <v-col :cols="8">
+        <v-row class="title-row" :col="8">
+          <h2>Let's Get In Touch!</h2>
+        </v-row>
+        <v-row>
+          <v-col :col="8">
+            <p> {{ welcomeText }} </p>
 
-          <v-btn class="mr-4" @click="submit"> submit </v-btn>
-        </v-form>
-      </div>
-
-      <v-snackbar v-model="inDevAlert">
-        'Let's Get In Touch' is still in development.
-        <template v-slot:action="{ attrs }">
-          <v-btn color="green" text v-bind="attrs" @click="inDevAlert = false">
-            Close
-          </v-btn>
-        </template>
-      </v-snackbar>
-
-    </div>
-  </div>
+          </v-col>
+          <v-col :col="1"></v-col>
+        </v-row>
+      </v-col>
+    </v-row>
+  </v-container>
 </template>
 
 <script>
@@ -66,6 +37,7 @@ export default {
   components: {},
   data() {
     return {
+      welcomeText: "pharetra eu mi vel, dignissim ultricies magna. Quisque ut interdum libero, sed euismod nulla. Sed varius, nibh id placerat mattis, nulla enim interdum erat, ut fermentum sem leo ac ex. Fusce vel lobortis mi, vitae dignissim velit. Praesent mollis in neque nec mollis. Curabitur a mi facilisis, varius tortor vel, rhoncus sem.",
       name: "",
       email: "",
       message: "",
@@ -112,9 +84,8 @@ export default {
 </script>
 
 <style scoped>
-.container {
-  background-image: url(https://moretoexploreapistorage.blob.core.windows.net/site-images/beach-waves.png);
-  background-size: cover;
+.title-row {
+  justify-content: center;
 }
 
 .form-group {
@@ -137,7 +108,6 @@ export default {
   align-items: center;
   text-align: center;
   padding: 0 15px;
-
 }
 
 .alerts {
@@ -147,9 +117,8 @@ export default {
 
 h2 {
   text-align: center;
-  font-family:"Satisfy", cursor;
+  font-family: "Satisfy", cursor;
   font-size: 3rem;
   font-weight: 200;
-  color: whitesmoke;
 }
 </style>
