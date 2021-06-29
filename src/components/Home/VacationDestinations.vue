@@ -6,7 +6,7 @@
         src="https://moretoexploreapistorage.blob.core.windows.net/site-images/seaside-drinks.jpg"
         alt=""
       />
-      <p class="center-title">Romantic Getaway</p>
+      <p class="center-title">Romantic Retreats</p>
     </div>
     
     <div class="img-container">
@@ -15,7 +15,7 @@
         src="https://moretoexploreapistorage.blob.core.windows.net/site-images/beach.jpg"
         alt=""
       />
-      <p class="center-title">Family Adventures</p>
+      <p class="center-title">Family Destinations</p>
     </div>
 
     <div class="img-container">
@@ -24,7 +24,7 @@
         src="https://moretoexploreapistorage.blob.core.windows.net/site-images/friend-vacation.jpg"
         alt=""
       />
-      <p class="center-title">Group Travel</p>
+      <p class="center-title">Group Getaways</p>
     </div>
   </div>
 </template>
@@ -41,14 +41,12 @@ export default {
 <style>
 .img-group-container {
   display: inline-flex;
-  justify-content: space-around;
-  height: 20rem;
-  margin: 0 2rem;
+  height: 25rem;
 }
 
 .img-container {
-  padding: 1rem 2rem;
   position: relative;
+  width: 33vw;
 }
 
 .vacation-type-img{
