@@ -30,11 +30,14 @@ export default {
 <style scoped>
 .home-header {
 background-color: black;
-
 }
 
 .header-row {
-  height: 100%;
+  height: 45vh;
+}
+
+.split-col {
+  margin-top: -5vh;;
 }
 
 .logo-row {
@@ -52,19 +55,21 @@ background-color: black;
 }
 
 .header-img {
-  max-width: 30vw;
-
+  max-width: 32vw;
 }
 
 #img-1 {
   margin-left: 2rem;
+  max-height: 40vh;
 }
 
 #img-2 {
-    margin-top: 10vh;
+  margin-top: 5vh;
+  max-height: 40vh;
 }
 
 #img-3 {
+  max-height: 35vh;
 }
 
 #logo-title {
