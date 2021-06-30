@@ -8,14 +8,14 @@
           </div>
         </v-row>
         <v-row class="header-img lower-row">
-          <v-img id="img-1" src="https://moretoexploreapistorage.blob.core.windows.net/site-images/OceanandCliffs.jpg"></v-img>
+          <!-- <v-img id="img-1" src="https://moretoexploreapistorage.blob.core.windows.net/site-images/OceanandCliffs.jpg"></v-img> -->
         </v-row>
       </v-col>
       <v-col  class="header-img">
-        <v-img id="img-2" src="https://moretoexploreapistorage.blob.core.windows.net/site-images/BeachView.jpg"></v-img>
+        <!-- <v-img id="img-2" src="https://moretoexploreapistorage.blob.core.windows.net/site-images/BeachView.jpg"></v-img> -->
       </v-col>
       <v-col  class="header-img">
-        <v-img id="img-3" src="https://moretoexploreapistorage.blob.core.windows.net/site-images/PalmTreeLightHouse.jpg"></v-img>
+        <!-- <v-img id="img-3" src="https://moretoexploreapistorage.blob.core.windows.net/site-images/PalmTreeLightHouse.jpg"></v-img> -->
       </v-col>
     </v-row>
   </div>
