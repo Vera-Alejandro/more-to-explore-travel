@@ -1,8 +1,10 @@
 <template>
   <v-app>
+        <div class="container">
     <div v-if="releaseStatus === 'SiteReady' || backdoorEnabled">
       <Navigation />
       <v-main>
+
         <router-view :key="$route.fullPath" />
       </v-main>
       <v-footer>
@@ -26,6 +28,7 @@
     <div v-if="releaseStatus === 'ComingSoon' && backdoorEnabled === false">
       <CommingSoon @EnableBackdoor="RevealSite" />
     </div>
+        </div>
   </v-app>
 </template>
 
@@ -64,8 +67,14 @@ export default {
 };
 </script>
 
-<style scoped>
+<style scoped lang='scss'>
 .icon-shoutout {
   font-size: 10px;
 }
+
+.container {
+  margin : 0;
+  padding: 0;
+}
+
 </style>
