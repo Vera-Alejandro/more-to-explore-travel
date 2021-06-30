@@ -1,5 +1,6 @@
 <template>
-  <div class="home-header">
+  <div>
+
     <div id="nav-btn" class="overlay">
       <a href="javascript:void(0)" class="close-btn" @click="closeNav"
         >&times;</a
