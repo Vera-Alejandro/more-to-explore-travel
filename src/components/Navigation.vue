@@ -44,31 +44,26 @@ export default {
       fullNav: [
         {
           text: "Home",
-          title: "--to do--",
           active: true,
           url: "/",
         },
         {
           text: "Services",
-          title: "--to do--",
           active: true,
           url: "/services",
         },
         {
           text: "About Me",
-          title: "--to do--",
           active: true,
           url: "/aboutme",
         },
         {
           text: "Blog",
-          title: "--to do--",
-          active: false,
+          active: true,
           url: "/blog",
         },
         {
           text: "Contact",
-          title: "--to do--",
           active: true,
           url: "/contact",
         },
@@ -89,6 +84,7 @@ export default {
   methods: {
     goToPage(page) {
       let from = localStorage.getItem("LS_ROUTE_PATH");
+      
       if (from != page) {
         this.$router.push(page);
         console.log(this.$route.query.page);

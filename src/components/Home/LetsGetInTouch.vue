@@ -3,13 +3,14 @@
     <div>
       <h2>Let's Get In Touch!</h2>
       <div>
-        <form>
+        <form class="input-form">
           <v-text-field
             v-model="name"
             :error-messages="nameErrors"
             :counter="25"
             label="Name"
             required
+            background-color="white"
             @input="$v.name.$touch()"
             @blur="$v.name.$touch()"
           ></v-text-field>
@@ -111,44 +112,24 @@ export default {
 </script>
 
 <style scoped>
-.container {
-  background-image: url(https://moretoexploreapistorage.blob.core.windows.net/site-images/beach-waves.png);
-  background-size: cover;
-}
-
-.form-group {
-  background-color: whitesmoke;
-  max-width: 780px;
-  margin: 0 auto;
-  border-radius: 10px;
-  padding-bottom: 1.5rem;
+.text-wrap {
+  color: black;
 }
 
 .contact {
   padding: 2rem;
-  height: 35rem;
+  height: 30rem;
   margin: 0;
   max-width: 100%;
   background-size: cover;
 }
 
 .input-form {
+  max-width: 750px;
   align-items: center;
-  text-align: center;
-  padding: 0 15px;
-
+  margin: 0 auto;
 }
-
-.alerts {
-  position: absolute;
-  bottom: 0px;
-}
-
 h2 {
   text-align: center;
-  font-family:"Satisfy", cursor;
-  font-size: 3rem;
-  font-weight: 200;
-  color: whitesmoke;
 }
 </style>
