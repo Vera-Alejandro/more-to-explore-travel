@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="bg-primary-600">
     <header>
       <HomeHeader/>
     </header>
