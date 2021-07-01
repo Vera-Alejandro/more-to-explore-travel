@@ -6,83 +6,6 @@
       alt="More To Explore Site Logo"
     />
     <h1>Site Coming Soon ...</h1>
-
-    <div class="notify-me sketchy">
-      <form action="submit" v-if="!userSignedUp">
-        <v-card-title class="form-title">Sign Up To Get Notified </v-card-title>
-        <div class="form-inputs">
-          <v-text-field
-            v-model="name"
-            :error-messages="nameErrors"
-            :counter="25"
-            label="Name"
-            required
-            @input="$v.name.$touch()"
-            @blur="$v.name.$touch()"
-          ></v-text-field>
-          <v-text-field
-            v-model="email"
-            :error-messages="emailErrors"
-            label="E-mail"
-            required
-            @input="$v.email.$touch()"
-            @blur="$v.email.$touch()"
-          ></v-text-field>
-        </div>
-        <v-row justify="center">
-          <v-btn
-            class="btn-notify"
-            @click="addToNotificationList"
-            :loading="uploadingData"
-            >Notify Me!</v-btn
-          >
-        </v-row>
-        <v-row class="submit-btn"> </v-row>
-      </v-row>
-    </v-row>
-
-    <div class="alerts">
-      <v-alert
-        class="notifyUser"
-        v-model="alert_formincomplete"
-        dismissible
-        outlined
-        text
-        type="warning"
-        >Form Incomplete: Please fill out form</v-alert
-      >
-      <v-alert
-        class="notifyUser"
-        v-model="alert_fetcherror"
-        dismissible
-        outlined
-        text
-        type="error"
-        >Error Occurred: Please try again later</v-alert
-      >
-    </div>
-<<<<<<< HEAD
-=======
-
-    <v-alert
-      class="notifyUser"
-      v-model="alert_formincomplete"
-      dismissible
-      outlined
-      text
-      type="warning"
-      >Form Incomplete: Please fill out form</v-alert
-    >
-    <v-alert
-      class="notifyUser"
-      v-model="alert_fetcherror"
-      dismissible
-      outlined
-      text
-      type="error"
-      >Error Occurred: Please try again later</v-alert
-    >
->>>>>>> b842c2e (backdoor created)
   </div>
 </template>
 
@@ -181,56 +104,17 @@ export default {
 </script>
 
 <style scoped>
-<<<<<<< HEAD
 .soon-cont {
   flex-direction: column;
   align-items: center;
   width: 100%;
-=======
-.centered {
-  top: 5%;
-  left: 25%;
-}
-
-.coming-soon-container {
-  text-align: center;
-  padding: 0 2rem;
-}
-
-.notify-me {
-  font-family: "Libre Baskerville", serif;
-  display: inline-block;
-  width: 95%;
-  max-width: 750px;
-  min-width: 370px;
-}
-
-.form-inputs {
-  margin-bottom: 1rem;
-}
-
-.btn-notify {
-  margin-top: 1rem;
->>>>>>> b842c2e (backdoor created)
 }
 
 .business-logo {
   display: block;
   margin: auto;
-<<<<<<< HEAD
   width: 100%;
   padding: 1rem;
-=======
-  max-width: 100%;
-}
-
-.form-title {
-  justify-content: center;
-  font-size: 0.85rem;
-  font-weight: bold;
-  text-decoration: underline;
-  padding-bottom: 0.5rem;
->>>>>>> b842c2e (backdoor created)
 }
 
 .sketchy {
