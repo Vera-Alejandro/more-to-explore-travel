@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="bg-primary-600">
     <header>
       <HomeHeader/>
     </header>
@@ -7,14 +7,13 @@
       <VacationDestinations/>
       
       <v-divider></v-divider>
-      <Welcome/>
-
-
-      <v-divider></v-divider>
       <LetsGetInTouch/>
 
       <v-divider></v-divider>
       <InstagramFeed/>
+
+      <v-divider></v-divider>
+      <Welcome/>
 
     </main>
   </div>

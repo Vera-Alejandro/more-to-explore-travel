@@ -1,7 +1,9 @@
 <template>
-  <div class="home-header">
-    <div id="nav-btn" class="overlay">
-      <a href="javascript:void(0)" class="close-btn" @click="closeNav"
+  <div class="inset-x-0 top-0">
+
+
+    <div id="nav-btn" class="overlay z-20">
+      <a href="javascript:void(0)" class="close-btn z-30" @click="closeNav"
         >&times;</a
       >
       <div class="overlay-content">
@@ -18,7 +20,7 @@
       </div>
     </div>
 
-    <span class="menu-btn" @click="openNav">&#9776;</span>
+    <span id="menu-btn" class="menu-btn z-10 absolute text-5xl top-5 right-5" @click="openNav">&#9776;</span>
   </div>
 </template>
 
@@ -79,10 +81,12 @@ export default {
     },
     closeNav() {
       document.getElementById("nav-btn").style.width = "0%";
+      document.getElementById("menu-btn").style.display = "block";
     },
     openNav() {
       document.getElementById("nav-btn").style.width = "100%";
       document.getElementById("app").style.overflow = "hidden";
+      document.getElementById("menu-btn").style.display = "none";
     },
   },
   computed: {
@@ -94,7 +98,6 @@ export default {
 </script>
 
 <style scoped lang="scss">
-/* nav menue styling */
 .home-header {
   background-color:black;
   height: 7vh;
@@ -141,13 +144,6 @@ export default {
   font-size: 60px;
 }
 
-.menu-btn {
-  position: absolute;
-  top: 1%;
-  right: 5%;
-  font-size: 45px;
-  color: white;
-}
 
 @media screen and (max-height: 450) {
   .overlay a {
