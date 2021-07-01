@@ -1,11 +1,79 @@
 <template>
-  <div class="centered coming-soon-container">
-    <img
-      class="business-logo"
-      src="./assets/logo.png"
-      alt="More To Explore Site Logo"
-    />
-    <h1>Site Coming Soon ...</h1>
+  <div>
+    <v-row class="soon-cont">
+      <v-row class="logo">
+        <img
+          class="business-logo"
+          src="./assets/logo.png"
+          alt="More To Explore Site Logo"
+        />
+      </v-row>
+      <v-row class="soon-text">
+        <h1>Site Coming Soon ...</h1>
+      </v-row>
+      <v-row class="form-cont sketchy">
+        <v-row>
+          <form class="form" action="submit" v-if="!userSignedUp">
+            <v-card-title class="form-title"
+              >Sign Up To Get Notified
+            </v-card-title>
+            <div class="form-inputs">
+              <v-text-field
+                v-model="name"
+                :error-messages="nameErrors"
+                :counter="25"
+                label="Name"
+                required
+                @input="$v.name.$touch()"
+                @blur="$v.name.$touch()"
+              ></v-text-field>
+              <v-text-field
+                v-model="email"
+                :error-messages="emailErrors"
+                label="E-mail"
+                required
+                @input="$v.email.$touch()"
+                @blur="$v.email.$touch()"
+              ></v-text-field>
+            </div>
+            <v-row class="btn-submit" justify="center">
+              <v-btn
+                class="btn-notify"
+                @click="addToNotificationList"
+                :loading="uploadingData"
+                >Notify Me!</v-btn
+              >
+            </v-row>
+          </form>
+
+          <div v-if="userSignedUp">
+            <h4 class="thank-you">Thank You For Signing Up</h4>
+          </div>
+        </v-row>
+        <v-row class="submit-btn"> </v-row>
+      </v-row>
+    </v-row>
+
+    <div class="alerts">
+      <v-alert
+        class="notifyUser"
+        v-model="alert_formincomplete"
+        dismissible
+        outlined
+        text
+        type="warning"
+        >Form Incomplete: Please fill out form</v-alert
+      >
+      <v-alert
+        class="notifyUser"
+        v-model="alert_fetcherror"
+        dismissible
+        outlined
+        text
+        type="error"
+        >Error Occurred: Please try again later</v-alert
+      >
+    </div>
   </div>
 </template>
 
