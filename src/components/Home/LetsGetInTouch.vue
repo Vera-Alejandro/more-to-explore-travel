@@ -1,50 +1,18 @@
 <template>
-  <div class="container contact">
+  <div class="container flex flex-col items-center">
+
     <div>
-      <h2>Let's Get In Touch!</h2>
-      <div>
-        <form>
-          <v-text-field
-            v-model="name"
-            :error-messages="nameErrors"
-            :counter="25"
-            label="Name"
-            required
-            @input="$v.name.$touch()"
-            @blur="$v.name.$touch()"
-          ></v-text-field>
-          <v-text-field
-            v-model="email"
-            :error-messages="emailErrors"
-            label="E-mail"
-            required
-            @input="$v.email.$touch()"
-            @blur="$v.email.$touch()"
-          ></v-text-field>
-          <v-textarea
-            v-model="message"
-            :error-messages="messageErrors"
-            label="Message"
-            required
-            class="text-justify"
-            @change="$v.select.$touch()"
-            @blur="$v.select.$touch()"
-          ></v-textarea>
-
-          <v-btn class="mr-4" @click="submit"> submit </v-btn>
-        </form>
-      </div>
-
-      <v-snackbar v-model="inDevAlert">
-        'Let's Get In Touch' is still in development.
-        <template v-slot:action="{ attrs }">
-          <v-btn color="green" text v-bind="attrs" @click="inDevAlert = false">
-            Close
-          </v-btn>
-        </template>
-      </v-snackbar>
-
+      <h1 class="text-3xl text-center my-5">Get in Touch!</h1>
     </div>
+    <div>
+      <h1 class="text-center"> {{ welcomeText }} </h1>
+    </div>
+    <div>
+      <v-btn class="my-10"> Contact Me </v-btn>
+    </div>
+
+
+
   </div>
 </template>
 
@@ -65,6 +33,7 @@ export default {
   components: {},
   data() {
     return {
+      welcomeText: "pharetra eu mi vel, dignissim ultricies magna. Quisque ut interdum libero, sed euismod nulla. Sed varius, nibh id placerat mattis, nulla enim interdum erat, ut fermentum sem leo ac ex. Fusce vel lobortis mi, vitae dignissim velit. Praesent mollis in neque nec mollis. Curabitur a mi facilisis, varius tortor vel, rhoncus sem.",
       name: "",
       email: "",
       message: "",
@@ -110,8 +79,37 @@ export default {
 };
 </script>
 
-<style>
-.text-wrap {
-  color: black;
+<style scoped>
+.title-row {
+  justify-content: center;
+}
+
+.form-group {
+  background-color: whitesmoke;
+  max-width: 780px;
+  margin: 0 auto;
+  border-radius: 10px;
+  padding-bottom: 1.5rem;
+}
+
+.contact {
+  padding: 2rem;
+  height: 35rem;
+  margin: 0;
+  max-width: 100%;
+  background-size: cover;
+}
+
+.input-form {
+  align-items: center;
+  text-align: center;
+  padding: 0 15px;
+}
+
+h2 {
+  text-align: center;
+  font-family: "Satisfy", cursor;
+  font-size: 3rem;
+  font-weight: 200;
 }
 </style>

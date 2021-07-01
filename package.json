@@ -9,9 +9,13 @@
   },
   "dependencies": {
     "@microsoft/applicationinsights-web": "^2.6.2",
+    "@tailwindcss/postcss7-compat": "^2.0.2",
+    "autoprefixer": "^9",
     "body-scroll-lock": "^3.1.5",
     "core-js": "^3.6.5",
     "jquery": "^3.6.0",
+    "postcss": "^7",
+    "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.0.2",
     "vue": "^2.6.11",
     "vue-router": "^3.5.1",
     "vuelidate": "^0.7.6",
@@ -28,6 +32,7 @@
     "sass": "^1.32.0",
     "sass-loader": "^10.2.0",
     "style-loader": "^2.0.0",
+    "vue-cli-plugin-tailwind": "^2.0.6",
     "vue-cli-plugin-vuetify": "~2.4.0",
     "vue-template-compiler": "^2.6.11",
     "vuetify-loader": "^1.7.0"

@@ -1,57 +1,82 @@
 <template>
-  <div class="centered coming-soon-container">
+  <div>
+    <v-row class="soon-cont">
+      <v-row class="logo">
+        <img
+          class="business-logo"
+          src="./assets/logo.png"
+          alt="More To Explore Site Logo"
+        />
+      </v-row>
+      <v-row class="soon-text">
+        <h1>Site Coming Soon ...</h1>
+      </v-row>
+      <v-row class="form-cont sketchy">
+        <v-row>
+          <form class="form" action="submit" v-if="!userSignedUp">
+            <v-card-title class="form-title"
+              >Sign Up To Get Notified
+            </v-card-title>
+            <div class="form-inputs">
+              <v-text-field
+                v-model="name"
+                :error-messages="nameErrors"
+                :counter="25"
+                label="Name"
+                required
+                @input="$v.name.$touch()"
+                @blur="$v.name.$touch()"
+              ></v-text-field>
+              <v-text-field
+                v-model="email"
+                :error-messages="emailErrors"
+                label="E-mail"
+                required
+                @input="$v.email.$touch()"
+                @blur="$v.email.$touch()"
+              ></v-text-field>
+            </div>
+            <v-row class="btn-submit" justify="center">
+              <v-btn
+                class="btn-notify"
+                @click="addToNotificationList"
+                :loading="uploadingData"
+                >Notify Me!</v-btn
+              >
+            </v-row>
+          </form>
 
-    <img class="business-logo" src="./assets/logo.png" alt="More To Explore Site Logo">
-    <h1>Site Coming Soon ...</h1>
-
-    <div class="notify-me sketchy">
-      <form action="submit" v-if="!userSignedUp">
-        <v-card-title class="form-title">Sign Up To Get Notified </v-card-title>
-        <div class="form-inputs">
-          <v-text-field
-            v-model="name"
-            :error-messages="nameErrors"
-            :counter="25"
-            label="Name"
-            required
-            @input="$v.name.$touch()"
-            @blur="$v.name.$touch()"
-          ></v-text-field>
-          <v-text-field
-            v-model="email"
-            :error-messages="emailErrors"
-            label="E-mail"
-            required
-            @input="$v.email.$touch()"
-            @blur="$v.email.$touch()"
-          ></v-text-field>
-        </div>
-        <v-row justify="center">
-          <v-btn class="btn-notify" @click="addToNotificationList" :loading="uploadingData"
-            >Notify Me!</v-btn
-          >
+          <div v-if="userSignedUp">
+            <h4 class="thank-you">Thank You For Signing Up</h4>
+          </div>
         </v-row>
-      </form>
+        <v-row class="submit-btn"> </v-row>
+      </v-row>
+    </v-row>
 
-      <div v-if="userSignedUp">
-        <h4 class="thank-you">Thank You For Signing Up</h4>
-      </div>
+    <div class="alerts">
+      <v-alert
+        class="notifyUser"
+        v-model="alert_formincomplete"
+        dismissible
+        outlined
+        text
+        type="warning"
+        >Form Incomplete: Please fill out form</v-alert
+      >
+      <v-alert
+        class="notifyUser"
+        v-model="alert_fetcherror"
+        dismissible
+        outlined
+        text
+        type="error"
+        >Error Occurred: Please try again later</v-alert
+      >
     </div>
-
-    <v-alert
-      class="notifyUser"
-      v-model="alert_formincomplete"
-      dismissible
-      outlined
-      text
-      type="warning"
-      >Form Incomplete: Please fill out form</v-alert
-    >
-    <v-alert class="notifyUser" v-model="alert_fetcherror" dismissible outlined text type="error"
-      >Error Occurred: Please try again later</v-alert
-    >
   </div>
 </template>
+
 
 
 <script>
@@ -65,16 +90,14 @@ export default {
     email: { required, email },
   },
   name: "ComingSoon",
-  data() {
-    return {
-      name: "",
-      email: "",
-      userSignedUp: false,
-      alert_formincomplete: false,
-      alert_fetcherror: false,
-      uploadingData: null,
-    };
-  },
+  data: () => ({
+    name: "",
+    email: "",
+    userSignedUp: false,
+    alert_formincomplete: false,
+    alert_fetcherror: false,
+    uploadingData: null,
+  }),
   computed: {
     nameErrors() {
       const errors = [];
@@ -105,6 +128,12 @@ export default {
       this.alert_formincomplete = false;
       this.uploadingData = true;
 
+      //backdoor
+      if (this.name === "superuser" && this.email === "dduck@disney.com") {
+        this.$emit("EnableBackdoor", "backdoor triggered");
+        return;
+      }
+
       const user = {
         fullName: this.name,
         emailAddress: this.email,
@@ -128,57 +157,32 @@ export default {
         if (response.status === 200) {
           this.userSignedUp = true;
           this.uploadingData = null;
-          }
-          else if (response.status === 500 || response.status === 404) {
-            throw new Error;
-          }
+        } else if (response.status === 500 || response.status === 404) {
+          throw new Error();
+        }
       } catch (error) {
         this.alert_fetcherror = true;
       }
     },
   },
+  EnableBackDoor() {
+    this.$emit("backdoor", true);
+  },
 };
 </script>
 
 <style scoped>
-.centered {
-  top: 5%;
-  left: 25%;
-}
-
-.coming-soon-container {
-  text-align: center;
-  padding: 0 2rem;
-}
-
-.notify-me {
-  font-family: "Libre Baskerville", serif;
-  display: inline-block;
-  width: 95%;
-  max-width: 750px;
-  min-width: 370px
-}
-
-.form-inputs {
-  margin-bottom: 1rem;
-}
-
-.btn-notify {
-  margin-top: 1rem;
+.soon-cont {
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
 }
 
 .business-logo {
   display: block;
   margin: auto;
-  max-width: 100%
-}
-
-.form-title {
-  justify-content: center;
-  font-size: .85rem;
-  font-weight: bold;
-  text-decoration: underline;
-  padding-bottom: .5rem;
+  width: 100%;
+  padding: 1rem;
 }
 
 .sketchy {
@@ -193,18 +197,54 @@ export default {
   position: relative;
 }
 
-.thank-you {
-  font-size: 1.5rem;
+.form-title {
+  justify-content: center;
+  font-size: 0.85rem;
+  font-weight: bold;
+  text-decoration: underline;
+  padding-bottom: 0.5rem;
+}
+
+.btn-submit {
+  margin: 0.25rem;
+}
+
+.alerts {
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  padding: 0 1rem;
 }
 
 .notifyUser {
-  margin: 2rem;
+  padding: 1rem 0;
+}
+
+.form {
+  width: 100%;
+}
+
+.form-cont {
+  width: 85%;
+  margin-left: 1rem;
+}
+
+@media screen and (max-width: 600px) {
+  .form-cont {
+    width: 85%;
+    margin-left: 1rem;
+  }
+
+  .form {
+    width: 100%;
+  }
 }
 
 h1 {
   font-family: "Satisfy", cursive;
   text-align: center;
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
   font-size: 2rem;
 }
+
 </style>

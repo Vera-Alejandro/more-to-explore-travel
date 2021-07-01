@@ -1,34 +1,44 @@
 <template>
-  <div class="img-container vacation-types">
-    <img class="vacation-type-img" src="../../assets/map-travel.jpg" alt="" />
-    <img class="vacation-type-img" src="../../assets/map-travel.jpg" alt="" />
-    <img class="vacation-type-img" src="../../assets/map-travel.jpg" alt="" />
+  <div class="flex flex-col">
+    <div 
+    v-for="vaca in vacationPhotos"
+    :key="vaca.textOverlay"
+    class="w-auto h-auto">
+      <img
+        :src="vaca.imgSrc"
+        :alt="vaca.textOverlay"
+        :title="vaca.textOverlay"
+        class="max-h-full"
+      />
+      <div>
+        <h1 class="absolute text-lg -mt-16 text-white px-4"> {{ vaca.textOverlay }} </h1>
+      </div>
+    </div>
+    
   </div>
 </template>
 
 <script>
 export default {
-        name: 'LetsGetInTouch',
-    data () {
-        return {
-
-        };
-    },
+  name: "VacationDestination",
+  data: () => ({
+    vacationPhotos: [
+      {
+        textOverlay: "Romantic Retreats",
+        imgSrc: "https://moretoexploreapistorage.blob.core.windows.net/site-images/seaside-drinks.jpg",
+      },
+      {
+        textOverlay: "Family Destinations",
+        imgSrc: "https://moretoexploreapistorage.blob.core.windows.net/site-images/beach.jpg",
+      },
+      {
+        textOverlay: "Group Getaway",
+        imgSrc: "https://moretoexploreapistorage.blob.core.windows.net/site-images/friend-vacation.jpg",
+      },
+    ]
+  }),
 };
 </script>
 
 <style>
-.img-container {
-  display: flex;
-  margin: 2rem;
-  justify-content: space-around;
-}
-
-.vacation-types {
-  height: 17rem;
-}
-
-.vacation-type-img {
-  height: 100%;
-}
 </style>

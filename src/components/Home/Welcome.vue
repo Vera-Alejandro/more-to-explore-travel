@@ -1,31 +1,20 @@
 <template>
-  <div class="welcome-container">
-    <div class="text-cont">
-      <h2>Welcome</h2>
-      <article class="welcome-msg">
-        <p>
-          Lorem ipsum dolor sit amet, molestie enim, nec viverra sapien lacus in
-          massa. Vivamus sodales, lacus mattis tincidunt efficitur, erat nibh
-          accumsan ex, et ornare ex ligula ut turpis. Sed interdum placerat
-          lacus, nec fermentum augue auctor et.
-        </p>
-      </article>
-      <v-btn @click="inDevAlert = true">Get To Know Me!</v-btn>
+  <div class="container grid gap-4  justify-items-center md:grid-flow-col md:grid-rows-3 ">
+    <div class="my-3 md:row-span-3">
+      <img
+        src="https://moretoexploreapistorage.blob.core.windows.net/site-images/ellie-seaside.png"
+        alt=""
+      />
     </div>
-    <div class="img-cont">
-      <aside class="welcome-img">
-        <img src="../../assets/map-travel.jpg" alt="" />
-      </aside>
+    <div class="mx-3 text-center md:col-span-2 md:row-span-2">
+      <p>
+        {{ welcomeParagraph }}
+      </p>
     </div>
-
-    <v-snackbar v-model="inDevAlert">
-      'Getting To Know Me' feature is still in development.
-      <template v-slot:action="{ attrs }">
-        <v-btn color="green" text v-bind="attrs" @click="inDevAlert = false">
-          Close
-        </v-btn>
-      </template>
-    </v-snackbar>
+    <div class="mb-10 md:col-span-2">
+      <v-btn class="aboutMeBtn" @click="redirectAboutMe" color="#BBE1FA"
+        >Get To Know Me!</v-btn>
+    </div>
   </div>
 </template>
 
@@ -34,48 +23,20 @@ export default {
   name: "Welcome",
   data() {
     return {
+      welcomeParagraph:
+        "Hi everyone! I’m Ellie Boyer, owner of More to Explore Travel. As a travel advisor, it’s my goal to make traveling simpler and more achievable for couples, groups, and families. It’s also my goal for all of my clients to have unforgettable experiences and create wonderful memories while traveling the world together. If you’re looking to travel more and stress less, you’ve come to the right place. Remember, there’s always more to explore!",
       inDevAlert: false,
     };
+  },
+  methods: {
+    redirectAboutMe() {
+      document.body.scrollTop = 0;
+      document.documentElement.scrollTop = 0;
+      this.$router.push("/aboutme");
+    },
   },
 };
 </script>
 
-<style>
-.welcome-container {
-  height: 15rem;
-  margin: 2rem;
-  clear: both;
-  max-width: 1300px;
-}
-
-.text-cont {
-  width: 60%;
-  height: 100%;
-  float: left;
-}
-
-.img-cont {
-  width: 40%;
-  height: 100%;
-  float: right;
-  text-align: center;
-}
-
-
-.welcome-msg {
-  float: left;
-}
-
-.welcome-img {
-  height: 25rem;
-  max-width: 100%;
-}
-
-.welcome-img img {
-  max-height: 100%;
-}
-
-aside {
-  max-height: 100%;
-}
+<style scoped>
 </style>
