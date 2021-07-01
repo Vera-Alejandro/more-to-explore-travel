@@ -1,5 +1,5 @@
 <template>
-  <v-app class="w-screen">
+  <v-app>
         <div class="site-container">
     <div v-if="releaseStatus === 'SiteReady' || backdoorEnabled">
       <Navigation />

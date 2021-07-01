@@ -1,17 +1,17 @@
 <template>
-  <div class="container grid grid-rows-3 gap-4 grid-flow-col">
-    <div class="row-span-3">
+  <div class="container grid gap-4  justify-items-center md:grid-flow-col md:grid-rows-3 ">
+    <div class="my-3 md:row-span-3">
       <img
         src="https://moretoexploreapistorage.blob.core.windows.net/site-images/ellie-seaside.png"
         alt=""
       />
     </div>
-    <div class="col-span-2 row-span-2">
+    <div class="mx-3 text-center md:col-span-2 md:row-span-2">
       <p>
         {{ welcomeParagraph }}
       </p>
     </div>
-    <div class="col-span-2">
+    <div class="mb-10 md:col-span-2">
       <v-btn class="aboutMeBtn" @click="redirectAboutMe" color="#BBE1FA"
         >Get To Know Me!</v-btn>
     </div>
