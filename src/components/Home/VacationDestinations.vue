@@ -1,14 +1,14 @@
 <template>
-  <div class="p-0 block container mx-auto md:flex">
+  <div class="flex flex-col">
     <div 
     v-for="vaca in vacationPhotos"
     :key="vaca.textOverlay"
-    class="inline-block">
+    class="w-auto h-auto">
       <img
         :src="vaca.imgSrc"
         :alt="vaca.textOverlay"
         :title="vaca.textOverlay"
-        class=""
+        class="max-h-full"
       />
       <div>
         <h1 class="absolute text-lg -mt-16 text-white px-4"> {{ vaca.textOverlay }} </h1>
