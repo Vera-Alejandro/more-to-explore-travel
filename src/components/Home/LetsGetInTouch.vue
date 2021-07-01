@@ -1,23 +1,19 @@
 <template>
-  <v-container>
-    <v-row>
-      <v-col :cols="4">
-        <v-img src="https://moretoexploreapistorage.blob.core.windows.net/site-images/RoadTrip.jpg" max-height="450" :aspect-ratio="4/5"></v-img>
-      </v-col>
-      <v-col :cols="8">
-        <v-row class="title-row" :col="8">
-          <h2>Let's Get In Touch!</h2>
-        </v-row>
-        <v-row>
-          <v-col :col="8">
-            <p> {{ welcomeText }} </p>
+  <div class="container flex flex-col items-center">
 
-          </v-col>
-          <v-col :col="1"></v-col>
-        </v-row>
-      </v-col>
-    </v-row>
-  </v-container>
+    <div>
+      <h1 class="text-3xl text-center my-5">Get in Touch!</h1>
+    </div>
+    <div>
+      <h1 class="text-center"> {{ welcomeText }} </h1>
+    </div>
+    <div>
+      <v-btn class="my-10"> Contact Me </v-btn>
+    </div>
+
+
+
+  </div>
 </template>
 
 <script>
