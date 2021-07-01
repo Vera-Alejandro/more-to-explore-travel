@@ -75,6 +75,7 @@ export default {
       let from = localStorage.getItem("LS_ROUTE_PATH");
       if (from != page) {
         this.$router.push(page);
+        console.log(this.$route.query.page);
         this.closeNav();
       }
     },
